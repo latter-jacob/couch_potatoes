@@ -6,7 +6,7 @@ I want to see a list of shows to review.
 So that I can decide which one to judge.
 
   Acceptance Criteria
-  [ ] - I must see the name of each show
+  [ ] - I must see the title of each show
 
 ) do
 
