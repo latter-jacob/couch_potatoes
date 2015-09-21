@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'shows#index'
+  root "shows#index"
 
   resources :shows, only: [:index]
   devise_for :users
