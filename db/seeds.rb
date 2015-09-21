@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require "faker"
+10.times do
+  title = Faker::Book.title + rand(1..1000).to_s
+  url = Faker::Internet.url
+  Show.create!(title: title, url: url)
+end
