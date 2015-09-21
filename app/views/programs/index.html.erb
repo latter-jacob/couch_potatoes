@@ -2,6 +2,6 @@
 
 <ul>
   <% @programs.each do |program| %>
-    <li><%= program.title %></li>
+    <li><%=link_to program.title, program_path(program.id) %></li>
   <% end %>
 </ul>
