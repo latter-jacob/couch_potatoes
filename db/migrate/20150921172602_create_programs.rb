@@ -1,6 +1,6 @@
-class CreateShows < ActiveRecord::Migration
+class CreatePrograms < ActiveRecord::Migration
   def change
-    create_table :shows do |t|
+    create_table :programs do |t|
       t.string :title, null: false
       t.string :url, null: false
       t.string :start_year
