@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
+
+gem 'dotenv-rails'
+
+group :test do
+  gem 'coveralls', require: false
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
