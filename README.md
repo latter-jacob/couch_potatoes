@@ -1,4 +1,4 @@
-[ ![Codeship Status for latter-jacob/couch_potatoes](https://codeship.com/projects/96440210-42b4-0133-b560-0a794f3732af/status?branch=master)](https://codeship.com/projects/103851) ![Code Climate](https://codeclimate.com/github/latter-jacob/couch_potatoes.png) ![Coverage Status](https://coveralls.io/repos/latter-jacob/couch_potatoes/badge.png)
+[ ![Codeship Status for latter-jacob/couch_potatoes](https://codeship.com/projects/96440210-42b4-0133-b560-0a794f3732af/status?branch=master)](https://codeship.com/projects/103851) ![Code Climate](https://codeclimate.com/github/latter-jacob/couch_potatoes.png) [![Coverage Status](https://coveralls.io/repos/latter-jacob/couch_potatoes/badge.svg?branch=master&service=github)](https://coveralls.io/github/latter-jacob/couch_potatoes?branch=master)
 == README
 
 This README would normally document whatever steps are necessary to get the
