@@ -25,7 +25,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'launchy'
+  gem 'launchy-rails'
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers'

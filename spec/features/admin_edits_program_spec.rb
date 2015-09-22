@@ -100,6 +100,5 @@ feature 'admin edits program', %{
     click_link('Edit')
 
     expect(page).to have_content("Edit #{program.title}")
-
   end
 end

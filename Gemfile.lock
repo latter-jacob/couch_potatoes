@@ -103,6 +103,8 @@ GEM
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
+    launchy-rails (0.0.1)
+      launchy (> 2.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -245,7 +247,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
-  launchy
+  launchy-rails
   pg
   pry-rails
   rails (= 4.2.4)
