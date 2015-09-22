@@ -20,7 +20,7 @@ class ProgramsController < ApplicationController
   end
 
   def new
-    if current_admin.nil?
+    unless current_user.admin?
       redirect_to root_path
       flash[:notice] = "This portion of the site is for admins only!"
     else
@@ -41,7 +41,7 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    if current_admin.nil?
+    unless current_user.admin?
       redirect_to root_path
       flash[:notice] = "This portion of the site is for admins only!"
     else
