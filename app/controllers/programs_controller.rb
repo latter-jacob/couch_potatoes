@@ -49,6 +49,14 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def destroy
+    @program = Program.find(params[:id])
+    @program.destroy
+    flash[:notice] = 'program deleted.'
+    redirect_to root_path
+  end
+
+
   private
 
   def program_params
