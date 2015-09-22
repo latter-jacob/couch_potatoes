@@ -61,7 +61,6 @@ class ProgramsController < ApplicationController
     end
   end
 
-
   private
 
   def program_params
