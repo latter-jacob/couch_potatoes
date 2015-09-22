@@ -73,7 +73,7 @@ feature 'admin adds program', %{
     visit new_program_path
 
     click_button "Add Program"
-    expect(page).to have_content("Fill out form correctly")
+    expect(page).to have_content("Title can't be blank. Url can't be blank")
   end
 
   scenario 'user tries to visit create program page' do
@@ -89,6 +89,6 @@ feature 'admin adds program', %{
 
     visit new_program_path
 
-    expect(page).to have_content("Programs Home")
+    expect(page).to have_content("This portion of the site is for admins only!")
   end
 end

@@ -14,7 +14,7 @@ class ProgramsController < ApplicationController
       flash[:notice] = "Program saved"
       redirect_to program_path(@program)
     else
-      flash[:notice] = "Fill out form correctly"
+      flash[:notice] = @program.errors.full_messages.join(". ")
       render :new
     end
   end
@@ -22,6 +22,7 @@ class ProgramsController < ApplicationController
   def new
     if current_admin.nil?
       redirect_to root_path
+      flash[:notice] = "This portion of the site is for admins only!"
     else
       @program = Program.new
     end
