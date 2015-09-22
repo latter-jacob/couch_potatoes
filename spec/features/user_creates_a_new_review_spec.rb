@@ -6,13 +6,13 @@ feature 'user can add a new review for a theme song', %(
   I enjoy it, and optionally a comment on the song!
 ) do
 
-  #Acceptance Criteria
-  #[ ] Users must input a rating from 1 to 5
-  #[ ] Users can optionally leave a comment, less than 200 characters
-  #[ ] When the user submits the review, the user review is displayed
-  #    on the show page
-  #[ ] A flash message to indicate success
-  #[ ] A flash message to indicate failure
+  # Acceptance Criteria
+  # [ ] Users must input a rating from 1 to 5
+  # [ ] Users can optionally leave a comment, less than 200 characters
+  # [ ] When the user submits the review, the user review is displayed
+  #     on the show page
+  # [ ] A flash message to indicate success
+  # [ ] A flash message to indicate failure
 
   scenario 'user adds a review' do
     user = FactoryGirl.create(:user)

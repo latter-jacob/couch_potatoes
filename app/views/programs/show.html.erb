@@ -10,7 +10,6 @@
   End year: <%= @program.end_year %>
 </p>
 
-
 <% unless @reviews == [] %>
   <h3>Reviews:</h3>
   <ul>
@@ -31,3 +30,5 @@
 
   <%= f.submit ("Add Review")%>
 <% end %>
+
+<%= link_to 'Edit', edit_program_path(@program) %>

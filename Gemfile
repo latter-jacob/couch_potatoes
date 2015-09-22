@@ -23,6 +23,7 @@ gem "pry"
 group :development, :test do
   gem 'byebug'
   gem 'faker', '~> 1.5.0'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy-rails'
@@ -30,7 +31,6 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'shoulda'
-
 end
 
 group :development do
