@@ -17,6 +17,9 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :body).merge(program: @program, user: @user)
+    params.require(:review).permit(:rating, :body).merge(
+      program: @program,
+      user: @user
+      )
   end
 end
