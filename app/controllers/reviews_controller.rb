@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def create
     authenticate_user!
     @program = Program.find(params[:program_id])

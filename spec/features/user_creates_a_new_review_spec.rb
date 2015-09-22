@@ -1,15 +1,16 @@
 require "rails_helper"
 
 feature 'user can add a new review for a theme song', %(
-As a user I can review television program theme song
-So that I can submit a rating of how much
-I enjoy it, and optionally a comment on the song!
+  As a user I can review television program theme song
+  So that I can submit a rating of how much
+  I enjoy it, and optionally a comment on the song!
 ) do
 
 # Acceptance Criteria
 #   [ ] Users must input a rating from 1 to 5
 #   [ ] Users can optionally leave a comment, less than 200 characters
-#   [ ] When the user submits the review, the user review is displayed on the show page
+#   [ ] When the user submits the review, the user review is displayed
+#       on the show page
 #   [ ] A flash message to indicate success
 #   [ ] A flash message to indicate failure
 
@@ -21,10 +22,10 @@ I enjoy it, and optionally a comment on the song!
     expect(page).to have_content('Signed in successfully')
 
     review = FactoryGirl.create(
-    :review,
-    body: "This is a test! Lets see if it works",
-    program: program_1,
-    user: user
+      :review,
+      body: "This is a test! Lets see if it works",
+      program: program_1,
+      user: user
     )
 
     visit program_path(program_1)
@@ -37,14 +38,13 @@ I enjoy it, and optionally a comment on the song!
     expect(page).to have_content(user.email)
   end
 
-
   scenario 'user is not signed in and adds a review' do
     program_1 = FactoryGirl.create(:program)
 
     review = FactoryGirl.create(
-    :review,
-    body: "This is a test! Lets see if it works",
-    program: program_1,
+      :review,
+      body: "This is a test! Lets see if it works",
+      program: program_1,
     )
 
     visit program_path(program_1)
@@ -52,7 +52,9 @@ I enjoy it, and optionally a comment on the song!
     fill_in "Body", with: review.body
 
     click_button("Add Review")
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content(
+    "You need to sign in or sign up before continuing."
+    )
 
   end
 
@@ -64,10 +66,10 @@ I enjoy it, and optionally a comment on the song!
     expect(page).to have_content('Signed in successfully')
 
     review = FactoryGirl.create(
-    :review,
-    body: "This is a test! Lets see if it works",
-    program: program_1,
-    user: user
+      :review,
+      body: "This is a test! Lets see if it works",
+      program: program_1,
+      user: user
     )
 
     visit program_path(program_1)
@@ -86,9 +88,9 @@ I enjoy it, and optionally a comment on the song!
     expect(page).to have_content('Signed in successfully')
 
     review = FactoryGirl.create(
-    :review,
-    program: program_1,
-    user: user
+      :review,
+      program: program_1,
+      user: user
     )
 
     visit program_path(program_1)
@@ -110,8 +112,11 @@ I enjoy it, and optionally a comment on the song!
 
     click_button("Add Review")
 
-    expect(page).to have_content("Rating can't be blank - Rating is not a number - Rating must be between 1 - 5")
+    expect(page).to have_content(
+    "Rating can't be blank -
+    Rating is not a number -
+    Rating must be between 1 - 5"
+    )
   end
-
 
 end
