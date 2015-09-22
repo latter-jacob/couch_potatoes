@@ -18,13 +18,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
+gem "pry"
 
 group :development, :test do
   gem 'byebug'
   gem 'faker', '~> 1.5.0'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'launchy'
+  gem 'launchy-rails'
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers'

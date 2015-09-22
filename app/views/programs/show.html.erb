@@ -9,3 +9,25 @@
 <p>
   End year: <%= @program.end_year %>
 </p>
+
+
+<% unless @reviews == [] %>
+  <h3>Reviews:</h3>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
+        <%= review.body %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2>Add a review!</h2>
+<%= form_for [@program, @review] do |f| %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit ("Add Review")%>
+<% end %>
