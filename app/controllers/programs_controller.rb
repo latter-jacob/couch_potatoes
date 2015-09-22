@@ -28,6 +28,27 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def update
+    @program = Program.find(params[:id])
+
+    if @program.update(program_params)
+      flash[:notice] = "Program edited"
+      redirect_to @program
+    else
+      flash[:notice] = @program.errors.full_messages.join(". ")
+      render :new
+    end
+  end
+
+  def edit
+    if current_admin.nil?
+      redirect_to root_path
+      flash[:notice] = "This portion of the site is for admins only!"
+    else
+      @program = Program.find(params[:id])
+    end
+  end
+
   private
 
   def program_params
