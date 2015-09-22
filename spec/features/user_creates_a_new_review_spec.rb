@@ -21,7 +21,7 @@ feature 'user can add a new review for a theme song', %(
     sign_in(user)
     expect(page).to have_content('Signed in successfully')
 
-    review = FactoryGirl.create(
+    review = FactoryGirl.build(
       :review,
       body: "This is a test! Lets see if it works",
       program: program_1,
@@ -41,7 +41,7 @@ feature 'user can add a new review for a theme song', %(
   scenario 'user is not signed in and adds a review' do
     program_1 = FactoryGirl.create(:program)
 
-    review = FactoryGirl.create(
+    review = FactoryGirl.build(
       :review,
       body: "This is a test! Lets see if it works",
       program: program_1,
@@ -65,7 +65,7 @@ feature 'user can add a new review for a theme song', %(
     sign_in(user)
     expect(page).to have_content('Signed in successfully')
 
-    review = FactoryGirl.create(
+    review = FactoryGirl.build(
       :review,
       body: "This is a test! Lets see if it works",
       program: program_1,
@@ -87,7 +87,7 @@ feature 'user can add a new review for a theme song', %(
     sign_in(user)
     expect(page).to have_content('Signed in successfully')
 
-    review = FactoryGirl.create(
+    review = FactoryGirl.build(
       :review,
       program: program_1,
       user: user
