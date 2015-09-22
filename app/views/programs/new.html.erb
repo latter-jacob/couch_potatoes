@@ -1,0 +1,22 @@
+<h1>Add new show</h1>
+
+<%= form_for @program do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+  <%= f.label :start_year, "Start Year" %>
+  <%= f.text_field :start_year %>
+
+  <%= f.label :end_year, "End Year" %>
+  <%= f.text_field :end_year %>
+
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+
+  <%= f.submit "Add Program" %>
+
+<% end %>
