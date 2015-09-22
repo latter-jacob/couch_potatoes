@@ -25,7 +25,6 @@ FactoryGirl.define do
     rating 5
     sequence(:body) { |n| "Celtics are #{n} champions (but really 17 times)" }
     score 0
-    association :program
-    association :user
+    association :program, :user
   end
 end

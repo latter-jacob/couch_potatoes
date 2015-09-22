@@ -4,9 +4,6 @@ class ReviewsController < ApplicationController
     @program = Program.find(params[:program_id])
     @user = current_user
     @review = Review.new(review_params)
-    @review.program = @program
-    @review.user = @user
-    @review.score = 0
 
     if @review.save
       flash[:notice] = "You have sumbitted a review"
@@ -20,6 +17,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :body)
+    params.require(:review).permit(:rating, :body).merge(program: @program, user: @user)
   end
 end
