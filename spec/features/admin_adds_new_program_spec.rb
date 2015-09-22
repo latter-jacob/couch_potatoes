@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'admin adds program', %Q{
+feature 'admin adds program', %{
   As an admin
   I want to be able to add a program
 } do

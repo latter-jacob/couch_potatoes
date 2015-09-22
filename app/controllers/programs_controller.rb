@@ -17,18 +17,18 @@ class ProgramsController < ApplicationController
       flash[:notice] = "Fill out form correctly"
       render :new
     end
-
   end
 
   def new
     if current_admin.nil?
       redirect_to root_path
     else
-    @program = Program.new
+      @program = Program.new
     end
   end
 
   private
+
   def program_params
     params.require(:program).permit(:title, :url, :start_year, :end_year, :genre)
   end
