@@ -12,9 +12,9 @@ feature 'admin adds program', %{
   # [X] Admins are able to successfully create a new show
   # [X] With invalid form info, admins are not able to create a new show
   scenario 'specify valid credentials' do
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
 
-    visit new_admin_session_path
+    visit new_user_session_path
 
     fill_in 'Email', with: admin.email
     fill_in 'Password', with: admin.password
@@ -25,7 +25,7 @@ feature 'admin adds program', %{
   end
 
   scenario 'specify invalid credentials' do
-    visit new_admin_session_path
+    visit new_user_session_path
 
     click_button 'Log in'
     expect(page).to have_content('Invalid email or password')
@@ -33,12 +33,12 @@ feature 'admin adds program', %{
   end
 
   scenario 'admin adds program successfully' do
-    admin = FactoryGirl.create(:admin)
+    user = FactoryGirl.create(:user, admin: true)
 
-    visit new_admin_session_path
+    visit new_user_session_path
 
-    fill_in 'Email', with: admin.email
-    fill_in 'Password', with: admin.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
     click_button 'Log in'
 
@@ -60,9 +60,9 @@ feature 'admin adds program', %{
   end
 
   scenario 'admin adds program unsuccessfully' do
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
 
-    visit new_admin_session_path
+    visit new_user_session_path
 
     fill_in 'Email', with: admin.email
     fill_in 'Password', with: admin.password

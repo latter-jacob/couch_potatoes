@@ -21,11 +21,7 @@
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign In Admin', new_admin_session_path %></li>
         <%- end -%>
-        <%- if current_admin -%>
-          <li><%= link_to 'Sign Out Admin', destroy_admin_session_path, method: :delete %></li>
-        <% end %>
       </ul>
     </section>
   </nav>
