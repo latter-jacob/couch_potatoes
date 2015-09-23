@@ -15,7 +15,14 @@
   <ul>
     <% @reviews.each do |review| %>
       <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-        <%= review.body %> </li>
+        <%= review.body %><br>
+        <% if review.user == current_user %>
+          <%= link_to "Edit Comment", edit_program_review_path(@program, review)%><br>
+        <%end%>
+        <% if review.user == current_user || current_user.try(:admin?) %>
+          <%= link_to "Delete Comment", program_review_path(@program, review), method: :delete%>
+        <%end%>
+      </li>
     <% end %>
   </ul>
 <% end %>
@@ -31,5 +38,7 @@
   <%= f.submit ("Add Review")%>
 <% end %>
 
-<%= link_to 'Edit', edit_program_path(@program) %>
-<%= link_to 'Delete Program', program_path , method: :delete %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_program_path(@program) %><br>
+  <%= link_to 'Delete Program', program_path, method: :delete %>
+<% end %>
