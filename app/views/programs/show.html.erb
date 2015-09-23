@@ -1,4 +1,3 @@
-
 <div class="flex-video widescreen">
   <iframe width="854" height="480" src="//www.youtube.com/embed/<%= @program.url %>" frameborder="0"></iframe>
 </div>
@@ -13,12 +12,28 @@
 </div>
 
 <div class="medium-9 columns">
+  <h3> <%= @program.genre %> </h3>
+
+  <p>
+    Start year: <%= @program.start_year %>
+  </p>
+
+  <p>
+    End year: <%= @program.end_year %>
+  </p>
   <% unless @reviews == [] %>
     <h3>Reviews:</h3>
     <ul>
       <% @reviews.each do |review| %>
         <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-          <%= review.body %> </li>
+          <%= review.body %><br>
+          <% if review.user == current_user %>
+            <%= link_to "Edit Comment", edit_program_review_path(@program, review)%><br>
+          <%end%>
+          <% if review.user == current_user || current_user.try(:admin?) %>
+            <%= link_to "Delete Comment", program_review_path(@program, review), method: :delete%>
+          <%end%>
+        </li>
       <% end %>
     </ul>
   <% end %>
@@ -33,8 +48,10 @@
     <%= f.submit ("Add Review")%>
   <% end %>
 
-  <%= link_to 'Edit', edit_program_path(@program) %>
-  <%= link_to 'Delete Program', program_path , method: :delete %>
+  <% if current_user.try(:admin?) %>
+    <%= link_to 'Edit', edit_program_path(@program) %><br>
+    <%= link_to 'Delete Program', program_path, method: :delete %>
+  <% end %>
 </div>
 <div class="medium-3 columns">
   <h3>Watch Next</h3>
