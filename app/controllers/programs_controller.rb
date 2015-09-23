@@ -1,4 +1,7 @@
 class ProgramsController < ApplicationController
+  before_action :require_admin
+  skip_before_action :require_admin, only: [:index, :show]
+
   def index
     @programs = Program.all
   end
@@ -22,12 +25,7 @@ class ProgramsController < ApplicationController
   end
 
   def new
-    if current_user.admin?
-      @program = Program.new
-    else
-      redirect_to root_path
-      flash[:notice] = "This portion of the site is for admins only!"
-    end
+    @program = Program.new
   end
 
   def update
@@ -43,17 +41,19 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    if current_user.admin?
-      @program = Program.find(params[:id])
-    else
-      redirect_to root_path
-      flash[:notice] = "This portion of the site is for admins only!"
-    end
+    @program = Program.find(params[:id])
   end
 
   private
 
   def program_params
     params.require(:program).permit(:title, :url, :start_year, :end_year, :genre)
+  end
+
+  def require_admin
+    unless current_user && current_user.admin
+      flash[:error] = "This portion of the site is for admins only!"
+      redirect_to root_path
+    end
   end
 end

@@ -53,7 +53,7 @@ feature 'user can add a new review for a theme song', %(
 
     click_button("Add Review")
     expect(page).to have_content(
-      "You need to sign in or sign up before continuing."
+      "You must be logged in to access this section"
     )
 
   end
