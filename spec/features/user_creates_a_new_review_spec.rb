@@ -21,16 +21,9 @@ feature 'user can add a new review for a theme song', %(
     sign_in(user)
     expect(page).to have_content('Signed in successfully')
 
-    review = FactoryGirl.build(
-      :review,
-      body: "This is a test! Lets see if it works",
-      program: program_1,
-      user: user
-    )
-
     visit program_path(program_1)
-    fill_in "Rating", with: review.rating
-    fill_in "Body", with: review.body
+    fill_in "Rating", with: 5
+    fill_in "Body", with: "This is a test! Lets see if it works"
 
     click_button("Add Review")
     expect(page).to have_content("This is a test! Lets see if it works")
@@ -41,15 +34,9 @@ feature 'user can add a new review for a theme song', %(
   scenario 'user is not signed in and adds a review' do
     program_1 = FactoryGirl.create(:program)
 
-    review = FactoryGirl.build(
-      :review,
-      body: "This is a test! Lets see if it works",
-      program: program_1,
-    )
-
     visit program_path(program_1)
-    fill_in "Rating", with: review.rating
-    fill_in "Body", with: review.body
+    fill_in "Rating", with: 4
+    fill_in "Body", with: "Heyhey"
 
     click_button("Add Review")
     expect(page).to have_content(
@@ -65,16 +52,9 @@ feature 'user can add a new review for a theme song', %(
     sign_in(user)
     expect(page).to have_content('Signed in successfully')
 
-    review = FactoryGirl.build(
-      :review,
-      body: "This is a test! Lets see if it works",
-      program: program_1,
-      user: user
-    )
-
     visit program_path(program_1)
     fill_in "Rating", with: 12
-    fill_in "Body", with: review.body
+    fill_in "Body", with: "Good stuff"
 
     click_button("Add Review")
     expect(page).to have_content("Rating must be between 1 - 5")
@@ -87,14 +67,8 @@ feature 'user can add a new review for a theme song', %(
     sign_in(user)
     expect(page).to have_content('Signed in successfully')
 
-    review = FactoryGirl.build(
-      :review,
-      program: program_1,
-      user: user
-    )
-
     visit program_path(program_1)
-    fill_in "Rating", with: review.rating
+    fill_in "Rating", with: 3
     fill_in "Body", with: "200charlol" * 21
 
     click_button("Add Review")

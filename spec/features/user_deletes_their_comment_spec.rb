@@ -14,19 +14,12 @@ feature 'user or admin can delete their review for a theme song', %(
   # [ ] A flash message to indicate failure
 
   scenario 'user deletes a review successfully' do
-    user = FactoryGirl.create(:user)
-    program_1 = FactoryGirl.create(:program)
-    review = FactoryGirl.create(
-      :review,
-      body: "This is a test! Lets see if it works",
-      program: program_1,
-      user: user
-    )
+    review = FactoryGirl.create(:review)
 
-    sign_in(user)
+    sign_in(review.user)
     expect(page).to have_content('Signed in successfully')
 
-    visit program_path(program_1)
+    visit program_path(review.program)
 
     click_link("Delete Comment")
 
@@ -35,20 +28,13 @@ feature 'user or admin can delete their review for a theme song', %(
 
   scenario 'admin deletes a review successfully' do
     admin = FactoryGirl.create(:user, admin: true)
-    user = FactoryGirl.create(:user)
-    program_1 = FactoryGirl.create(:program)
-    review = FactoryGirl.create(
-      :review,
-      body: "This is a test! Lets see if it works",
-      program: program_1,
-      user: user
-    )
+    review = FactoryGirl.create(:review)
 
     sign_in(admin)
 
     expect(page).to have_content('Signed in successfully')
 
-    visit program_path(program_1)
+    visit program_path(review.program)
 
     expect(page).to_not have_link('Edit Comment')
 
