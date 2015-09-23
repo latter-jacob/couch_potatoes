@@ -13,11 +13,10 @@ feature 'user can edit their review for a theme song', %(
   # [ ] A flash message to indicate success
   # [ ] A flash message to indicate failure
 
-
   scenario 'user edits a review successfully' do
     user = FactoryGirl.create(:user)
     program_1 = FactoryGirl.create(:program)
-    review = FactoryGirl.create(
+    FactoryGirl.create(
       :review,
       body: "This is a test! Lets see if it works",
       program: program_1,

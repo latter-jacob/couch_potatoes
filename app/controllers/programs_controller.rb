@@ -1,6 +1,5 @@
 class ProgramsController < ApplicationController
-  before_action :require_admin
-  skip_before_action :require_admin, only: [:index, :show]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @programs = Program.all
@@ -10,6 +9,10 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
     @reviews = @program.reviews
     @review = Review.new
+  end
+
+  def new
+    @program = Program.new
   end
 
   def create
@@ -22,10 +25,6 @@ class ProgramsController < ApplicationController
       flash[:notice] = @program.errors.full_messages.join(". ")
       render :new
     end
-  end
-
-  def new
-    @program = Program.new
   end
 
   def update
