@@ -2,33 +2,43 @@
 <div class="flex-video widescreen">
   <iframe width="854" height="480" src="//www.youtube.com/embed/<%= @program.url %>" frameborder="0"></iframe>
 </div>
-
-<div class="twelve columns" style="background-color: #cc0000">
-  <h1> <%=@program.title%></h1>
+<div class="columns">
+  <h1 class="show-title"><%=@program.title%></h1>
+</div>
+<div class="columns">
+  <% 5.times do %>
+    <img class="star" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/star.png" />
+  <% end %>
+  Stars and add a review button
 </div>
 
+<div class="medium-9 columns">
+  <% unless @reviews == [] %>
+    <h3>Reviews:</h3>
+    <ul>
+      <% @reviews.each do |review| %>
+        <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
+          <%= review.body %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <h2>Add a review!</h2>
+  <%= form_for [@program, @review] do |f| %>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
 
+    <%= f.label :body %>
+    <%= f.text_field :body %>
 
-<% unless @reviews == [] %>
-  <h3>Reviews:</h3>
-  <ul>
-    <% @reviews.each do |review| %>
-      <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-        <%= review.body %> </li>
-    <% end %>
-  </ul>
-<% end %>
+    <%= f.submit ("Add Review")%>
+  <% end %>
 
-<h2>Add a review!</h2>
-<%= form_for [@program, @review] do |f| %>
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
-
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-
-  <%= f.submit ("Add Review")%>
-<% end %>
-
-<%= link_to 'Edit', edit_program_path(@program) %>
-<%= link_to 'Delete Program', program_path , method: :delete %>
+  <%= link_to 'Edit', edit_program_path(@program) %>
+  <%= link_to 'Delete Program', program_path , method: :delete %>
+</div>
+<div class="medium-3 columns">
+  <h3>Watch Next</h3>
+  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /> </br ></br >
+    <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /><br /></br >
+      <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" />
+</div>

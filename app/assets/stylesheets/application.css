@@ -15,3 +15,12 @@
  *= require foundation_and_overrides
 
  */
+
+
+#content {
+  background-color: grey;
+}
+
+.star {
+  height: 70px;
+}
