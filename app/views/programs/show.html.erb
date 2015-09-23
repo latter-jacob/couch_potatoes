@@ -1,14 +1,13 @@
-<h1> <%=@program.title%></h1>
 
-<h3> <%= @program.genre %> </h3>
+<div class="flex-video widescreen">
+  <iframe width="854" height="480" src="//www.youtube.com/embed/<%= @program.url %>" frameborder="0"></iframe>
+</div>
 
-<p>
-  Start year: <%= @program.start_year %>
-</p>
+<div class="twelve columns" style="background-color: #cc0000">
+  <h1> <%=@program.title%></h1>
+</div>
 
-<p>
-  End year: <%= @program.end_year %>
-</p>
+
 
 <% unless @reviews == [] %>
   <h3>Reviews:</h3>
