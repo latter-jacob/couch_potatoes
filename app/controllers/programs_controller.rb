@@ -22,7 +22,7 @@ class ProgramsController < ApplicationController
   end
 
   def new
-    if current_user.admin?
+    if current_user.try(:admin?)
       @program = Program.new
     else
       redirect_to root_path
@@ -43,8 +43,20 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    if current_user.admin?
+    if current_user.try(:admin?)
       @program = Program.find(params[:id])
+    else
+      redirect_to root_path
+      flash[:notice] = "This portion of the site is for admins only!"
+    end
+  end
+
+  def destroy
+    if current_user.try(:admin?)
+      @program = Program.find(params[:id])
+      @program.destroy
+      flash[:notice] = 'program deleted.'
+      redirect_to root_path
     else
       redirect_to root_path
       flash[:notice] = "This portion of the site is for admins only!"
