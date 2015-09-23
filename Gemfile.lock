@@ -249,6 +249,7 @@ DEPENDENCIES
   jquery-rails
   launchy-rails
   pg
+  pry
   pry-rails
   rails (= 4.2.4)
   rspec-rails

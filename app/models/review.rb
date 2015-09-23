@@ -9,8 +9,10 @@ class Review < ActiveRecord::Base
 
   validates :rating, presence: true
   validates :rating, numericality: { only_integer: true }
-  validates :rating, inclusion: { in: 1..5,
-                                  message: "Must be between 1 - 5" }
+  validates :rating, inclusion: {
+    in: 1..5,
+    message: "must be between 1 - 5"
+  }
 
   validates :body, length: { maximum: 200 }, allow_blank: true
   validates :score, presence: true

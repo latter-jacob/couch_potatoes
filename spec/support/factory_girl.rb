@@ -14,4 +14,11 @@ FactoryGirl.define do
     end_year "1999"
     genre "cartoon"
   end
+
+  factory :review do
+    rating 5
+    sequence(:body) { |n| "Celtics are #{n} champions (but really 17 times)" }
+    score 0
+    association :program, :user
+  end
 end
