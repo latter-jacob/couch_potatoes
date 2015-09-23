@@ -16,6 +16,14 @@
 
     <section class="top-bar-section">
       <ul class="right">
+        <% if current_user %>
+          <% if current_user.try(:admin?) %>
+            <li> Admin</li>
+          <%- else-%>
+            <li>User signed in as <%= current_user.email%></li>
+          <%- end -%>
+      <%- end -%>
+
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>

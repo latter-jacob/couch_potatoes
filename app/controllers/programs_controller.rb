@@ -44,6 +44,18 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
   end
 
+  def destroy
+    if current_user.try(:admin?)
+      @program = Program.find(params[:id])
+      @program.destroy
+      flash[:notice] = 'program deleted.'
+      redirect_to root_path
+    else
+      redirect_to root_path
+      flash[:notice] = "This portion of the site is for admins only!"
+    end
+  end
+
   private
 
   def program_params
