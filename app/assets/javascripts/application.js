@@ -16,3 +16,7 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$("#plus-button").on("click", function() {
+  alert("Jews!")
+});

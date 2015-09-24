@@ -14,8 +14,14 @@
   <h3>Reviews:</h3>
   <ul>
     <% @reviews.each do |review| %>
-      <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
+      <div class="review">
+        <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
         <%= review.body %> </li>
+        <div class="vote-buttons">
+          <%= image_tag "plus_button.png", id: "plus_button" %>
+          <%= image_tag "minus_button.png", id: "minus_button" %>
+        </div>
+      </div>
     <% end %>
   </ul>
 <% end %>
