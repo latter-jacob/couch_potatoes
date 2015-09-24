@@ -2,6 +2,8 @@
 
 <h3> <%= @program.genre %> </h3>
 
+<h3> Average rating: <%= @program.average %> </h3>
+
 <p>
   Start year: <%= @program.start_year %>
 </p>
@@ -14,8 +16,26 @@
   <h3>Reviews:</h3>
   <ul>
     <% @reviews.each do |review| %>
-      <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-        <%= review.body %> </li>
+      <div class="review">
+        <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
+          <%= review.body %>
+          <% if review.edited? %>
+            <i>- edited
+              <%= time_ago_in_words(review.updated_at) %> ago
+            </i>
+          <% end %>
+
+          <br>
+          <% if review.user == current_user %>
+            <%= link_to "Edit Comment",
+            edit_program_review_path(@program, review) %><br>
+          <% end %>
+          <% if review.user == current_user || current_user.try(:admin?) %>
+            <%= link_to "Delete Comment",
+             program_review_path(@program, review), method: :delete %>
+          <% end %>
+        </li>
+      </div>
     <% end %>
   </ul>
 <% end %>
@@ -31,4 +51,7 @@
   <%= f.submit ("Add Review")%>
 <% end %>
 
-<%= link_to 'Edit', edit_program_path(@program) %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_program_path(@program) %><br>
+  <%= link_to 'Delete Program', program_path, method: :delete %>
+<% end %>

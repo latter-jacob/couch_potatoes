@@ -1,6 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :program
   belongs_to :user
+  has_many :votes
 
   validates :user, uniqueness: {
     scope: :program,
@@ -20,4 +21,17 @@ class Review < ActiveRecord::Base
 
   validates :program, presence: true
   validates :user, presence: true
+
+  def update_score
+    total = 0
+    votes = self.votes
+    votes.each do |info|
+      total += info.vote
+    end
+    self.score = total
+  end
+
+  def edited?
+    created_at != updated_at
+  end
 end
