@@ -22,13 +22,13 @@ class Review < ActiveRecord::Base
   validates :program, presence: true
   validates :user, presence: true
 
-  def update_score
+  def get_score
     total = 0
     votes = self.votes
-    votes.each do |info|
-      total += info.vote
+    votes.each do |vote|
+      total += vote.value
     end
-    self.score = total
+    total
   end
 
   def edited?

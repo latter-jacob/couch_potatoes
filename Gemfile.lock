@@ -153,6 +153,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    rb-readline (0.5.3)
     rdoc (4.2.0)
       json (~> 1.4)
     responders (2.1.0)
@@ -252,6 +253,7 @@ DEPENDENCIES
   pry
   pry-rails
   rails (= 4.2.4)
+  rb-readline
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

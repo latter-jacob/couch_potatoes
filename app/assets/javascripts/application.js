@@ -17,19 +17,16 @@
 
 $(function(){ $(document).foundation(); });
 
-$("#plus_button").on("click", function() {
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/votes",
-  //   dataType: "json"
-  // })
-  //
-  // .done(function(data){
-  //   debugger
-  //   alert(data);
-  // });
+var upvoteButton = $($('.vote-up')[0]);
+var downvoteButton = $($('.vote-down')[0]);
 
+var update_state = function(state) {
+  upvoteButton.attr("id", state["up"]);
+  downvoteButton.attr("id", state["down"]);
+};
+
+$(".vote").on("click", function() {
   var review_id = this.parentElement.id;
 
   $.ajax({
@@ -38,11 +35,9 @@ $("#plus_button").on("click", function() {
     data: { review_id: review_id, vote: this.id },
     dataType: "json"
   })
-
   .done(function(data){
+    var state = data["vote_state"]
+    update_state(state);
     debugger;
   });
-
-// test 1-2
-
 });
