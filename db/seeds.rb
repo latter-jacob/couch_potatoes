@@ -26,3 +26,8 @@ Program.create(title: Faker::Book.title, url: "49vGlSyf05A")
 Program.create(title: Faker::Book.title, url: "iWOyfLBYtuU")
 Program.create(title: Faker::Book.title, url: "KWZGAExj-es")
 Program.create(title: "Friends", url: "Niu9Zmrx0p8")
+
+
+# next step: add seed comments and users
+# add new review button
+# investigate getting button to expand form
