@@ -15,13 +15,21 @@
   <ul>
     <% @reviews.each do |review| %>
       <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-        <%= review.body %><br>
+        <%= review.body %>
+        <% if review.edited? %>
+          <i>- edited
+            <%= time_ago_in_words(review.updated_at) %> ago
+          </i>
+        <% end %>
+        <br>
         <% if review.user == current_user %>
-          <%= link_to "Edit Comment", edit_program_review_path(@program, review)%><br>
-        <%end%>
+          <%= link_to "Edit Comment",
+          edit_program_review_path(@program, review) %><br>
+        <% end %>
         <% if review.user == current_user || current_user.try(:admin?) %>
-          <%= link_to "Delete Comment", program_review_path(@program, review), method: :delete%>
-        <%end%>
+          <%= link_to "Delete Comment",
+           program_review_path(@program, review), method: :delete %>
+        <% end %>
       </li>
     <% end %>
   </ul>
