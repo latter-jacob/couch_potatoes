@@ -16,9 +16,9 @@
     <% @reviews.each do |review| %>
       <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
         <%= review.body %>
-        <% if review.edited %>
-          <i>- comment edited at
-            <%= (review.updated_at - 4.hours).strftime("%k:%M, %m/%d EST") %>
+        <% if review.edited? %>
+          <i>- edited
+            <%= time_ago_in_words(review.updated_at) %> ago
           </i>
         <% end %>
         <br>

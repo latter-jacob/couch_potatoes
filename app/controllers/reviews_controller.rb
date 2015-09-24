@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     if current_user == @review.user
-      if @review.update(review_params.merge(edited: true))
+      if @review.update(review_params)
         flash[:notice] = "You have updated your review"
         redirect_to program_path(@program)
       else

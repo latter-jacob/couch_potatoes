@@ -20,4 +20,8 @@ class Review < ActiveRecord::Base
 
   validates :program, presence: true
   validates :user, presence: true
+
+  def edited?
+    created_at != updated_at
+  end
 end
