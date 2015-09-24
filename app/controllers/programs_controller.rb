@@ -1,4 +1,6 @@
 class ProgramsController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @programs = Program.all
   end
@@ -7,6 +9,10 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
     @reviews = @program.reviews
     @review = Review.new
+  end
+
+  def new
+    @program = Program.new
   end
 
   def create
@@ -18,15 +24,6 @@ class ProgramsController < ApplicationController
     else
       flash[:notice] = @program.errors.full_messages.join(". ")
       render :new
-    end
-  end
-
-  def new
-    if current_user.admin?
-      @program = Program.new
-    else
-      redirect_to root_path
-      flash[:notice] = "This portion of the site is for admins only!"
     end
   end
 
@@ -43,8 +40,15 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    if current_user.admin?
+    @program = Program.find(params[:id])
+  end
+
+  def destroy
+    if current_user.try(:admin?)
       @program = Program.find(params[:id])
+      @program.destroy
+      flash[:notice] = 'program deleted.'
+      redirect_to root_path
     else
       redirect_to root_path
       flash[:notice] = "This portion of the site is for admins only!"
@@ -55,5 +59,12 @@ class ProgramsController < ApplicationController
 
   def program_params
     params.require(:program).permit(:title, :url, :start_year, :end_year, :genre)
+  end
+
+  def require_admin
+    unless current_user && current_user.admin
+      flash[:error] = "This portion of the site is for admins only!"
+      redirect_to root_path
+    end
   end
 end

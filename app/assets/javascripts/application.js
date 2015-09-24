@@ -18,5 +18,5 @@
 $(function(){ $(document).foundation(); });
 
 $("#plus-button").on("click", function() {
-  alert("Jews!")
+  alert("Juice!")
 });

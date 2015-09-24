@@ -16,11 +16,27 @@
     <% @reviews.each do |review| %>
       <div class="review">
         <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-        <%= review.body %> </li>
-        <div class="vote-buttons">
-          <%= image_tag "plus_button.png", id: "plus_button" %>
-          <%= image_tag "minus_button.png", id: "minus_button" %>
-        </div>
+          <%= review.body %>
+          <% if review.edited? %>
+            <i>- edited
+              <%= time_ago_in_words(review.updated_at) %> ago
+            </i>
+          <% end %>
+
+          <br>
+          <% if review.user == current_user %>
+            <%= link_to "Edit Comment",
+            edit_program_review_path(@program, review) %><br>
+          <% end %>
+          <% if review.user == current_user || current_user.try(:admin?) %>
+            <%= link_to "Delete Comment",
+             program_review_path(@program, review), method: :delete %>
+          <% end %>
+          <div class="vote-buttons">
+            <%= image_tag "plus_button.png", id: "plus_button" %>
+            <%= image_tag "minus_button.png", id: "minus_button" %>
+          </div>
+        </li>
       </div>
     <% end %>
   </ul>
@@ -37,4 +53,7 @@
   <%= f.submit ("Add Review")%>
 <% end %>
 
-<%= link_to 'Edit', edit_program_path(@program) %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_program_path(@program) %><br>
+  <%= link_to 'Delete Program', program_path, method: :delete %>
+<% end %>
