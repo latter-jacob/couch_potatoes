@@ -5,9 +5,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :edit, :update, :destroy]
   end
 
-  resources :reviews, only: [:index] do
+  resources :reviews, only: [:index, :show] do
     resources :votes, only: [:create, :update, :destroy]
   end
+
+  resources :votes, only: [:index]
 
   devise_for :users
 end

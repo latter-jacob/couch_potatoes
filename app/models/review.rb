@@ -29,6 +29,7 @@ class Review < ActiveRecord::Base
       total += info.vote
     end
     self.score = total
+  end
 
   def edited?
     created_at != updated_at

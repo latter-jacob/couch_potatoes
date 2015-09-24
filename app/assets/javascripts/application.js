@@ -17,6 +17,30 @@
 
 $(function(){ $(document).foundation(); });
 
-$("#plus-button").on("click", function() {
-  alert("Juice!")
+$("#plus_button").on("click", function() {
+
+  // $.ajax({
+  //   method: "GET",
+  //   url: "/votes",
+  //   dataType: "json"
+  // })
+  //
+  // .done(function(data){
+  //   debugger
+  //   alert(data);
+  // });
+
+  var review_id = this.parentElement.id;
+
+  $.ajax({
+    method: "POST",
+    url: ("/reviews/" + review_id + "/votes"),
+    data: { review_id: review_id, vote: this.id },
+    dataType: "json"
+  })
+
+  .done(function(data){
+    debugger;
+  });
+
 });

@@ -32,7 +32,7 @@
             <%= link_to "Delete Comment",
              program_review_path(@program, review), method: :delete %>
           <% end %>
-          <div class="vote-buttons">
+          <div class="vote-buttons" id="<%= review.id %>">
             <%= image_tag "plus_button.png", id: "plus_button" %>
             <%= image_tag "minus_button.png", id: "minus_button" %>
           </div>
