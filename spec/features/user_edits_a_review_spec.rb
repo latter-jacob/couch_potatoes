@@ -56,12 +56,11 @@ feature 'user can edit their review for a theme song', %(
     user = FactoryGirl.create(:user)
     program = FactoryGirl.create(:program)
     FactoryGirl.create(:review, rating: 5, program: program)
-    review_2 = FactoryGirl.create(
-    :review,
-    user: user,
-    rating: 3,
-    program: program
-    )
+    review_2 = FactoryGirl.create(:review,
+                                  user: user,
+                                  rating: 3,
+                                  program: program
+                                  )
 
     sign_in(user)
 
