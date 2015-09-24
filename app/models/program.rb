@@ -7,7 +7,7 @@ class Program < ActiveRecord::Base
   validates :url, uniqueness: true
 
   def average
-    associated_reviews = self.reviews
+    associated_reviews = reviews
     submissions = associated_reviews.length
     total_points = 0.0
 
@@ -16,9 +16,9 @@ class Program < ActiveRecord::Base
     end
 
     if submissions == 0
-      average = 0
+      0
     else
-      average = (total_points / submissions).round(1)
+      (total_points / submissions).round(1)
     end
   end
 end

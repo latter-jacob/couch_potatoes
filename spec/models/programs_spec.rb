@@ -15,8 +15,8 @@ end
 describe Program, '#average' do
   it 'returns the average of the users ratings' do
     program = FactoryGirl.create(:program)
-    review_1 = FactoryGirl.create(:review, program: program, rating: 2)
-    review_2 = FactoryGirl.create(:review, program: program, rating: 5)
+    FactoryGirl.create(:review, program: program, rating: 2)
+    FactoryGirl.create(:review, program: program, rating: 5)
 
     expect(program.average).to eq 3.5
   end

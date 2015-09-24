@@ -55,8 +55,13 @@ feature 'user can edit their review for a theme song', %(
   scenario 'user edits a review and average corrects itself' do
     user = FactoryGirl.create(:user)
     program = FactoryGirl.create(:program)
-    review_1 = FactoryGirl.create(:review, rating: 5, program: program)
-    review_2 = FactoryGirl.create(:review, user: user, rating: 3, program: program)
+    FactoryGirl.create(:review, rating: 5, program: program)
+    review_2 = FactoryGirl.create(
+    :review,
+    user: user,
+    rating: 3,
+    program: program
+    )
 
     sign_in(user)
 
