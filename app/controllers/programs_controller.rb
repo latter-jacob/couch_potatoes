@@ -1,4 +1,6 @@
 class ProgramsController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @programs = Program.all
   end
@@ -61,5 +63,12 @@ class ProgramsController < ApplicationController
 
   def program_params
     params.require(:program).permit(:title, :url, :start_year, :end_year, :genre)
+  end
+
+  def require_admin
+    unless current_user && current_user.admin
+      flash[:error] = "This portion of the site is for admins only!"
+      redirect_to root_path
+    end
   end
 end

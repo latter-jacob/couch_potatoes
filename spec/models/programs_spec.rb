@@ -20,4 +20,9 @@ describe Program, '#average' do
 
     expect(program.average).to eq 3.5
   end
+  it 'returns the average of the users ratings when there is no ratings' do
+    program = FactoryGirl.create(:program)
+    
+    expect(program.average).to eq 0
+  end
 end
