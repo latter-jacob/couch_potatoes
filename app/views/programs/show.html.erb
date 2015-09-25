@@ -2,7 +2,7 @@
 
 <h3> <%= @program.genre %> </h3>
 
-<h3> Average rating: <%= @program.average %> </h3>
+<h3> Average rating: <%= @program.reviews.average(:rating) %> </h3>
 
 <p>
   Start year: <%= @program.start_year %>
