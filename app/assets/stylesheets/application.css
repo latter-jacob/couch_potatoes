@@ -15,3 +15,28 @@
  *= require foundation_and_overrides
 
  */
+
+/*.vote-up {
+  color: neutral
+}
+
+.voted-on {
+  color:  #BDD860;
+}*/
+
+
+#upvote {
+  color: grey;
+}
+
+#downvote {
+  color: grey;
+}
+
+#upvoted {
+  color: #BDD860;
+}
+
+#downvoted {
+  color: #D85B36;
+}

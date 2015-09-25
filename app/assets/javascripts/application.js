@@ -16,28 +16,3 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-
-
-var upvoteButton = $($('.vote-up')[0]);
-var downvoteButton = $($('.vote-down')[0]);
-
-var update_state = function(state) {
-  upvoteButton.attr("id", state["up"]);
-  downvoteButton.attr("id", state["down"]);
-};
-
-$(".vote").on("click", function() {
-  var review_id = this.parentElement.id;
-
-  $.ajax({
-    method: "POST",
-    url: ("/reviews/" + review_id + "/votes"),
-    data: { review_id: review_id, vote: this.id },
-    dataType: "json"
-  })
-  .done(function(data){
-    var state = data["vote_state"]
-    update_state(state);
-    debugger;
-  });
-});

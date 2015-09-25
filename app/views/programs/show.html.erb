@@ -22,7 +22,6 @@
               <%= time_ago_in_words(review.updated_at) %> ago
             </i>
           <% end %>
-
           <br>
           <% if review.user == current_user %>
             <%= link_to "Edit Comment",
@@ -33,8 +32,22 @@
              program_review_path(@program, review), method: :delete %>
           <% end %>
           <div class="vote-buttons" id="<%= review.id %>">
-            <%= image_tag "plus_button.png", class: "vote vote-up", id: "upvote" %>
-            <%= image_tag "minus_button.png", class: "vote vote-down", id: "downvote" %>
+            <% if review.votes.where(user: current_user).any? %>
+              <% if review.votes.where(user: current_user).first.value == 1 %>
+                <a class="vote vote-up" id="upvoted">▲</a>
+                <a class="vote vote-down" id="downvote">▼</a>
+              <% elsif review.votes.where(user: current_user).first.value == -1 %>
+                <a class="vote vote-up" id="upvote">▲</a>
+                <a class="vote vote-down" id="downvoted">▼</a>
+              <% else %>
+                <a class="vote vote-up" id="upvote">▲</a>
+                <a class="vote vote-down" id="downvote">▼</a>
+              <% end  %>
+            <% else %>
+              <a class="vote vote-up" id="upvote">▲</a>
+              <a class="vote vote-down" id="downvote">▼</a>
+            <% end %>
+
           </div>
         </li>
       </div>

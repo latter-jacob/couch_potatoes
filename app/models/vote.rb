@@ -20,7 +20,7 @@ class Vote < ActiveRecord::Base
   end
 
   def vote_state
-    state = {up: "", down: ""}
+    state = {up: "upvote", down: "downvote"}
     if self.value == 1
       state = {up: "upvoted", down: "downvote"}
     elsif self.value == -1
