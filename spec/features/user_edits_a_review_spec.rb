@@ -51,4 +51,27 @@ feature 'user can edit their review for a theme song', %(
 
     expect(page).to have_content("You must be the original author to edit!")
   end
+
+  scenario 'user edits a review and average corrects itself' do
+    user = FactoryGirl.create(:user)
+    program = FactoryGirl.create(:program)
+    FactoryGirl.create(:review, rating: 5, program: program)
+    review_2 = FactoryGirl.create(:review,
+                                  user: user,
+                                  rating: 3,
+                                  program: program
+                                  )
+
+    sign_in(user)
+
+    expect(page).to have_content('Signed in successfully')
+
+    visit edit_program_review_path(program, review_2)
+
+    fill_in "Rating", with: 2
+    fill_in "Body", with: "Myeah"
+
+    click_button("Update Comment")
+    expect(page).to have_content(3.5)
+  end
 end
