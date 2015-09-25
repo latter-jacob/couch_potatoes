@@ -22,7 +22,7 @@ describe Program, '#average' do
   end
   it 'returns the average of the users ratings when there is no ratings' do
     program = FactoryGirl.create(:program)
-    
+
     expect(program.average).to eq 0
   end
 end
