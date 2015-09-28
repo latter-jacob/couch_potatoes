@@ -19,6 +19,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
 gem "pry"
+gem 'textacular', '~> 3.0'
 
 group :development, :test do
   gem 'byebug'
