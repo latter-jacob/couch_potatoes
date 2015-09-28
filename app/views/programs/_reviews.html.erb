@@ -33,11 +33,10 @@
           <% end %>
           <br>
           <% if review.user == current_user %>
-            <%= link_to "Edit Comment",
-            edit_program_review_path(@program, review) %> | 
-          <% end %><% if review.user == current_user || current_user.try(:admin?) %>
-            <%= link_to "Delete Comment",
-             program_review_path(@program, review), method: :delete %>
+            <%= link_to "Edit Comment", edit_program_review_path(@program, review) %> |
+          <% end %>
+          <% if review.user == current_user || current_user.try(:admin?) %>
+            <%= link_to "Delete Comment", program_review_path(@program, review), method: :delete %>
           <% end %>
         </div>
       </div>

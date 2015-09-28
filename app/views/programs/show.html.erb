@@ -1,12 +1,12 @@
 <div class="flex-video widescreen">
   <iframe width="854" height="480" src="//www.youtube.com/embed/<%= @program.url %>" frameborder="0"></iframe>
 </div>
-
 <div class="medium-9 columns">
   <h1 class="show-title"><%=@program.title%></h1>
   <% 5.times do %>
     <img class="star" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/star.png" />
-  <% end %><a href="#" class="button" id="review-button">Add a review</a>
+  <% end %>
+  <a href="#" class="button" id="review-button">Add a review</a>
   <h3> Average rating: <%= @program.reviews.average(:rating) %> </h3>
   <div class="hide" id="add-review">
     <%= render "programs/add_review" %>
@@ -17,6 +17,6 @@
     <%= render "layouts/search_bar" %>
   <h3>Watch Next</h3>
   <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /> </br ></br >
-    <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /><br /></br >
-      <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" />
+  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /><br /></br >
+  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" />
 </div>
