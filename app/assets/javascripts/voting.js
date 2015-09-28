@@ -1,16 +1,3 @@
-// review instance on load
-// make ajax call to get the results of the method we just wrote
-// give us access to that hash
-// then we can call function update state
-
-// var upvoteButton = $($('.vote-up')[0]);
-// var downvoteButton = $($('.vote-down')[0]);
-
-// var update_state = function(state) {
-//   upvoteButton.attr("id", state["up"]);
-//   downvoteButton.attr("id", state["down"]);
-// };
-
 var vote_classes = function(thing) {
   if (thing.id == "upvote") {
     $(thing).attr("id", "upvoted");
@@ -26,7 +13,6 @@ var vote_classes = function(thing) {
     $(thing.previousElementSibling).attr("id", "upvote");
   }
 }
-
 
 $(".vote").on("click", function() {
   var vote = this.id
