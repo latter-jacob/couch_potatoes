@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-feature 'creater of program i want an email ', %{
+feature 'creator of program receives notification', %{
 
 } do
 
-  scenario "review a product" do
+  scenario "user submits a review" do
     user = FactoryGirl.create(:user, email: "email@email.com")
-    program =FactoryGirl.create(:program, user: user)
+    program = FactoryGirl.create(:program, user: user)
 
     sign_in(user)
 
