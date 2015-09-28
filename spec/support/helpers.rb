@@ -5,4 +5,11 @@ module Helpers
     fill_in 'Password', with: user.password
     click_button 'Log in'
   end
+
+  def add_review(signed_in_user, program, review)
+    visit program_path(program)
+    fill_in "Rating", with: review.rating
+    fill_in "Body", with: review.body
+    click_button("Add Review")
+  end
 end
