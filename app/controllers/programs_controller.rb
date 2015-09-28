@@ -2,17 +2,17 @@ class ProgramsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @programs = Program.all
+    if params[:search]
+      @programs = Program.fuzzy_search(params[:search]).order("title DESC")
+    else
+      @programs = Program.all
+    end
   end
 
   def show
     @program = Program.find(params[:id])
     @reviews = @program.reviews
     @review = Review.new
-  end
-
-  def new
-    @program = Program.new
   end
 
   def create
@@ -24,6 +24,15 @@ class ProgramsController < ApplicationController
     else
       flash[:notice] = @program.errors.full_messages.join(". ")
       render :new
+    end
+  end
+
+  def new
+    if current_user.admin?
+      @program = Program.new
+    else
+      redirect_to root_path
+      flash[:notice] = "This portion of the site is for admins only!"
     end
   end
 
@@ -40,19 +49,18 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    @program = Program.find(params[:id])
-  end
-
-  def destroy
-    if current_user.try(:admin?)
+    if current_user.admin?
       @program = Program.find(params[:id])
-      @program.destroy
-      flash[:notice] = 'program deleted.'
-      redirect_to root_path
     else
       redirect_to root_path
       flash[:notice] = "This portion of the site is for admins only!"
     end
+  end
+
+  def destroy
+    @program = Program.find(params[:id])
+    @program.destroy
+    redirect_to root_path
   end
 
   private

@@ -16,8 +16,6 @@ class Review < ActiveRecord::Base
   }
 
   validates :body, length: { maximum: 200 }, allow_blank: true
-  validates :score, presence: true
-  validates :score, numericality: { only_integer: true }
 
   validates :program, presence: true
   validates :user, presence: true
