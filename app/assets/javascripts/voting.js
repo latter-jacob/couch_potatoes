@@ -40,7 +40,5 @@ $(".vote").on("click", function() {
     dataType: "json"
   })
   .done(function(data){
-    // var state = data["vote_state"]
-    // update_state(state);
   });
 });
