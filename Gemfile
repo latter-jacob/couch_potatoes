@@ -20,6 +20,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem "pry"
 gem 'textacular', '~> 3.0'
+gem 'mailcatcher'
 
 group :development, :test do
   gem 'byebug'

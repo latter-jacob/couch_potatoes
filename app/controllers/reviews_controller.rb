@@ -6,6 +6,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
+      unless @program.user == nil
+        UserMailer.review_notification(
+          @program.user, current_user, @program
+        ).deliver_now
+      end
       flash[:notice] = "You have sumbitted a review"
       redirect_to program_path(@program)
     else
