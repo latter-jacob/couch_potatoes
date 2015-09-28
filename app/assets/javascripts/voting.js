@@ -16,7 +16,6 @@ var vote_classes = function(thing) {
     $(thing).attr("id", "upvoted");
     $(thing.nextElementSibling).attr("id", "downvote");
   } else if (thing.id == "upvoted") {
-    debugger
     $(thing).attr("id", "upvote");
     $(thing.nextElementSibling).attr("id", "downvote");
   } else if (thing.id == "downvote") {
@@ -33,6 +32,7 @@ $(".vote").on("click", function() {
   var vote = this.id
   var review_id = this.parentElement.id;
   vote_classes(this);
+  var $t = $(this);
   $.ajax({
     method: "POST",
     url: ("/reviews/" + review_id + "/votes"),
@@ -40,5 +40,6 @@ $(".vote").on("click", function() {
     dataType: "json"
   })
   .done(function(data){
+    $($t.siblings('.score')[0]).text(data.score);
   });
 });

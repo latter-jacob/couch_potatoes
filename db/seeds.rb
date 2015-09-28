@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require "faker"
+require "factory_girl"
 
 Program.create(title: Faker::Book.title, url: "Kk8eJh4i8Lo")
 Program.create(title: Faker::Book.title, url: "tG35R8F2j8k")

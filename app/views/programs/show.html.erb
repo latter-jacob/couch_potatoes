@@ -15,7 +15,7 @@
   <ul>
     <% @reviews.each do |review| %>
       <div class="review">
-        <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
+        <li><strong>Rating: <%= review.rating %> - <%= review.user.email %></strong><br>
           <%= review.body %>
           <% if review.edited? %>
             <i>- edited
@@ -47,7 +47,7 @@
               <a class="vote vote-up" id="upvote">▲</a>
               <a class="vote vote-down" id="downvote">▼</a>
             <% end %>
-
+            Review Score: <span class="score"><%= review.get_score %><span>
           </div>
         </li>
       </div>

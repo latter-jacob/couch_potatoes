@@ -32,6 +32,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'shoulda'
   gem 'rb-readline'
+  gem 'selenium-webdriver'
 end
 
 group :development do
