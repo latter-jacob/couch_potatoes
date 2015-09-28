@@ -2,7 +2,11 @@ class ProgramsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @programs = Program.all
+    if params[:search]
+      @programs = Program.fuzzy_search(params[:search]).order("title DESC")
+    else
+      @programs = Program.all
+    end
   end
 
   def show

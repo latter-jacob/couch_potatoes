@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CouchPotatoes</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>CouchPotatoes</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">CouchPotatoes</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <% if current_user %>
-          <% if current_user.try(:admin?) %>
-            <li> Admin</li>
-          <%- else-%>
-            <li>User signed in as <%= current_user.email%></li>
-          <%- end -%>
-      <%- end -%>
-
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">CouchPotatoes</a></h1>
+        </li>
       </ul>
-    </section>
-  </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
+      <section class="top-bar-section">
+        <ul class="right">
+          <% if current_user %>
+            <% if current_user.try(:admin?) %>
+              <li> Admin</li>
+            <%- else-%>
+              <li>User signed in as <%= current_user.email%></li>
+            <%- end -%>
+        <%- end -%>
 
-  <%= yield %>
+          <%- if current_user -%>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%- else -%>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%- end -%>
+        </ul>
+      </section>
+    </nav>
 
-  <%= javascript_include_tag 'application' %>
-  <%= yield :extra_footer %>
-</body>
+    <%- flash.each do |key, value| -%>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    <%- end -%>
+
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= yield :extra_footer %>
+  </body>
+  <%= render "layouts/search_bar" %>
 </html>
