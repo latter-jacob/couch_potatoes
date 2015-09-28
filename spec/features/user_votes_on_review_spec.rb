@@ -1,7 +1,6 @@
 # encoding: UTF-8
 require "rails_helper"
 
-
 feature "user", %(
 As a user
 I want to vote on a review

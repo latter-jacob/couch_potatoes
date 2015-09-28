@@ -20,15 +20,15 @@ class Vote < ActiveRecord::Base
   end
 
   def vote_state
-    state = {up: "upvote", down: "downvote"}
-    if self.value == 1
-      state = {up: "upvoted", down: "downvote"}
-    elsif self.value == -1
-      state = {up: "upvote", down: "downvoted"}
-    elsif self.value == 0
-      state = {up: "upvote", down: "downvote"}
+    state = { up: "upvote", down: "downvote" }
+    if value == 1
+      state = { up: "upvoted", down: "downvote" }
+    elsif value == -1
+      state = { up: "upvote", down: "downvoted" }
+    elsif value == 0
+      state = { up: "upvote", down: "downvote" }
     end
-    return state
+    state
   end
 
   def update_value(vote_string)
@@ -36,5 +36,4 @@ class Vote < ActiveRecord::Base
     self.value = value
     self.save
   end
-
 end
