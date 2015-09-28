@@ -27,9 +27,9 @@
           <div class="review-username"><%= review.user.email %></div>
           <div class="review-body"><%= review.body %></div>
           <% if review.edited? %>
-            <i>- edited
-              <%= time_ago_in_words(review.updated_at) %> ago
-            </i>
+            <em>
+              - edited <%= time_ago_in_words(review.updated_at) %> ago
+            </em>
           <% end %>
           <br>
           <% if review.user == current_user %>
