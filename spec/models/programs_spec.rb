@@ -9,4 +9,5 @@ describe Program do
   subject { FactoryGirl.create(:program) }
   it { should validate_uniqueness_of(:title) }
   it { should validate_uniqueness_of(:url) }
+
 end

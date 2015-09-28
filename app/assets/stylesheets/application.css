@@ -16,11 +16,26 @@
 
  */
 
-
 #content {
   background-color: grey;
 }
 
 .star {
   height: 70px;
+}
+
+#upvote {
+  color: grey;
+}
+
+#downvote {
+  color: grey;
+}
+
+#upvoted {
+  color: #BDD860;
+}
+
+#downvoted {
+  color: #D85B36;
 }

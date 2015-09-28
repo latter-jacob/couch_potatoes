@@ -16,15 +16,43 @@
     <h3>Reviews:</h3>
     <ul>
       <% @reviews.each do |review| %>
-        <li><strong><%= review.rating %> - <%= review.user.email %></strong><br>
-          <%= review.body %><br>
-          <% if review.user == current_user %>
-            <%= link_to "Edit Comment", edit_program_review_path(@program, review)%><br>
-          <%end%>
-          <% if review.user == current_user || current_user.try(:admin?) %>
-            <%= link_to "Delete Comment", program_review_path(@program, review), method: :delete%>
-          <%end%>
-        </li>
+        <div class="review">
+          <li><strong>Rating: <%= review.rating %> - <%= review.user.email %></strong><br>
+            <%= review.body %>
+            <% if review.edited? %>
+              <i>- edited
+                <%= time_ago_in_words(review.updated_at) %> ago
+              </i>
+            <% end %>
+            <br>
+            <% if review.user == current_user %>
+              <%= link_to "Edit Comment",
+              edit_program_review_path(@program, review) %><br>
+            <% end %>
+            <% if review.user == current_user || current_user.try(:admin?) %>
+              <%= link_to "Delete Comment",
+               program_review_path(@program, review), method: :delete %>
+            <% end %>
+            <div class="vote-buttons" id="<%= review.id %>">
+              <% if review.votes.where(user: current_user).any? %>
+                <% if review.votes.where(user: current_user).first.value == 1 %>
+                  <a class="vote vote-up" id="upvoted">▲</a>
+                  <a class="vote vote-down" id="downvote">▼</a>
+                <% elsif review.votes.where(user: current_user).first.value == -1 %>
+                  <a class="vote vote-up" id="upvote">▲</a>
+                  <a class="vote vote-down" id="downvoted">▼</a>
+                <% else %>
+                  <a class="vote vote-up" id="upvote">▲</a>
+                  <a class="vote vote-down" id="downvote">▼</a>
+                <% end  %>
+              <% else %>
+                <a class="vote vote-up" id="upvote">▲</a>
+                <a class="vote vote-down" id="downvote">▼</a>
+              <% end %>
+              Review Score: <span class="score"><%= review.get_score %><span>
+            </div>
+          </li>
+        </div>
       <% end %>
     </ul>
   <% end %>

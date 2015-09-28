@@ -5,12 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# require "faker"
-# 10.times do
-#   title = Faker::Book.title + rand(1..1000).to_s
-#   url = Faker::Internet.url
-#   Program.create!(title: title, url: url)
-# end
+
+require "faker"
+require "factory_girl"
 
 Program.create(title: Faker::Book.title, url: "Kk8eJh4i8Lo")
 Program.create(title: Faker::Book.title, url: "tG35R8F2j8k")
@@ -26,8 +23,6 @@ Program.create(title: Faker::Book.title, url: "49vGlSyf05A")
 Program.create(title: Faker::Book.title, url: "iWOyfLBYtuU")
 Program.create(title: Faker::Book.title, url: "KWZGAExj-es")
 Program.create(title: "Friends", url: "Niu9Zmrx0p8")
-
-
 
 
 # next step: add seed comments and users

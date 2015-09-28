@@ -92,5 +92,4 @@ feature 'user can add a new review for a theme song', %(
       Rating must be between 1 - 5"
     )
   end
-
 end
