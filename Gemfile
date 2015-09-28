@@ -32,6 +32,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'shoulda'
+  gem 'rb-readline'
+  gem 'selenium-webdriver'
 end
 
 group :development do

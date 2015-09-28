@@ -20,6 +20,15 @@ class Review < ActiveRecord::Base
   validates :program, presence: true
   validates :user, presence: true
 
+  def get_score
+    total = 0
+    votes = self.votes
+    votes.each do |vote|
+      total += vote.value
+    end
+    total
+  end
+
   def edited?
     created_at != updated_at
   end
