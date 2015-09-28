@@ -40,6 +40,9 @@
     <%- end -%>
 
     <div class="container">
+      <div class="row" id "navigation">
+        Nav goes here.
+      </div>
       <div class="row" id="content">
           <%= yield %>
       </div>
@@ -48,5 +51,4 @@
     <%= javascript_include_tag 'application' %>
     <%= yield :extra_footer %>
   </body>
-  <%= render "layouts/search_bar" %>
 </html>

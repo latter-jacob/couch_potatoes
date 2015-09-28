@@ -54,8 +54,6 @@ feature 'admin adds program', %{
     click_button "Add Program"
 
     expect(page).to have_content('Scrubs')
-    expect(page).to have_content('2001')
-    expect(page).to have_content('2010')
     expect(page).to have_content('Program saved')
   end
 
