@@ -4,11 +4,10 @@ feature 'user can search for a show', %(
   As a user I can search television program titles
 ) do
 
-
   scenario 'user searches' do
-    program_1 = FactoryGirl.create(:program, title: "Breaking Bad")
-    program_2 = FactoryGirl.create(:program, title: "60 minutes")
-    program_3 = FactoryGirl.create(:program, title: "Bad Company")
+    FactoryGirl.create(:program, title: "Breaking Bad")
+    FactoryGirl.create(:program, title: "60 minutes")
+    FactoryGirl.create(:program, title: "Bad Company")
 
     visit root_path
 
