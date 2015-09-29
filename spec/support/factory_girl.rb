@@ -7,12 +7,15 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :genre do
+    sequence(:name) { |n| "genre#{n}" }
+  end
+
   factory :program do
     sequence(:title) { |n| "program #{n}" }
     sequence(:url) { |n| "http://www.#{n}program.com" }
     start_year "1991"
     end_year "1999"
-    genre "cartoon"
   end
 
   factory :review do
