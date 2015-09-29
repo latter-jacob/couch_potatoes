@@ -16,11 +16,12 @@
 
       <section class="top-bar-section">
         <ul class="right">
+
           <% if current_user %>
             <% if current_user.try(:admin?) %>
               <li> Admin</li>
             <%- else-%>
-              <li>User signed in as <%= current_user.email%></li>
+              <li><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></li>
             <%- end -%>
         <%- end -%>
           <%- if current_user -%>

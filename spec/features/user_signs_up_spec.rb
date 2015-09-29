@@ -27,6 +27,7 @@ feature 'user registers', %Q{
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
     expect(user.profile_photo.file.filename).to eq("images.jpeg")
+    expect(page).to have_css("img[src*='images.jpeg']")
   end
 
   scenario 'provide invalid registration information' do
