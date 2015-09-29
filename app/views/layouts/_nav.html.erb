@@ -1,0 +1,45 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">My Site</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+
+    <ul class="right">
+      <% if current_user %>
+        <% if current_user.try(:admin?) %>
+          <li> Admin</li>
+        <%- else-%>
+          <li>User signed in as <%= current_user.email%></li>
+        <%- end -%>
+    <%- end -%>
+      <%- if current_user -%>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </ul>
+    <!-- Left Nav Section -->
+    <ul class="left">
+        <li class="active"><a href="#">Random</a></li>
+        <li class="has-dropdown">
+          <a href="#">Browse Genres</a>
+          <ul class="dropdown">
+            <% Genre.all.order(:name).each do |genre| %>
+            <li>
+              <%= link_to genre.name, "/programs?genre_id=#{genre.id}" %>
+              <<%= genre.name %></a>
+            </li>
+            <% end %>
+
+          </ul>
+        </li>
+    </ul>
+  </section>
+</nav>
