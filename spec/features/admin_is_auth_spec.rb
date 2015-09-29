@@ -33,7 +33,6 @@ feature 'Users signs in ', %{
     click_button 'Log in'
 
     expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content(user.email)
   end
 
   scenario 'specify invalid credentials' do
