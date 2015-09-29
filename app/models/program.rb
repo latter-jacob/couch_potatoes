@@ -9,16 +9,16 @@ class Program < ActiveRecord::Base
   validates :url, uniqueness: true
 
   def self.get_random_program(user)
-   result = nil
-   if user.nil?
+    result = nil
+    if user.nil?
      result = Program.all.sample
-   else
+    else
      excluded_ids = user.reviews.pluck(:program_id)
      result = Program.where('id NOT IN (?)', excluded_ids).sample
-   end
-   unless result
-      result = Program.first
-   end
-   return result
- end
+    end
+    unless result
+     result = Program.first
+    end
+    result
+  end
 end
