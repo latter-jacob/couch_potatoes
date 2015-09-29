@@ -50,7 +50,6 @@ feature 'admin adds program', %{
     fill_in 'Url', with: "https://www.youtube.com/watch?v=JQfM2TVvBFU"
     fill_in 'Start Year', with: "2001"
     fill_in 'End Year', with: "2010"
-
     click_button "Add Program"
 
     expect(page).to have_content('Scrubs')

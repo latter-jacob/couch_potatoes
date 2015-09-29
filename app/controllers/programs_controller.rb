@@ -67,7 +67,7 @@ class ProgramsController < ApplicationController
 
   def program_params
     params.require(:program).permit(
-      :title, :url, :start_year, :end_year, :genre
+      :title, :url, :start_year, :end_year, :genre_id
     ).merge(
       user: current_user
     )
