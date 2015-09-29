@@ -21,6 +21,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div>
+    <%= f.file_field :profile_photo, type: :file %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
