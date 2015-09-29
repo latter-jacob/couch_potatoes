@@ -15,9 +15,9 @@
         <% if current_user.try(:admin?) %>
           <li> Admin</li>
         <%- else-%>
-          <li>User signed in as <%= current_user.email%></li>
+          <li><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></li>
         <%- end -%>
-    <%- end -%>
+      <%- end -%>
       <%- if current_user -%>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
       <%- else -%>
