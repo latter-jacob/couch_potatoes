@@ -23,7 +23,6 @@
               <li>User signed in as <%= current_user.email%></li>
             <%- end -%>
         <%- end -%>
-
           <%- if current_user -%>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <%- else -%>
@@ -40,10 +39,16 @@
       </div>
     <%- end -%>
 
-    <%= yield %>
+    <div class="container">
+      <div class="row" id "navigation">
+        <%= render "layouts/search_bar" %>
+      </div>
+      <div class="row" id="content">
+          <%= yield %>
+      </div>
+    </div>
 
     <%= javascript_include_tag 'application' %>
     <%= yield :extra_footer %>
   </body>
-  <%= render "layouts/search_bar" %>
 </html>

@@ -14,12 +14,13 @@ So that I can judge it harshly.
 
 ) do
 
-  scenario "User can see a review to vote on" do
+  scenario "User can see a review to vote on", js: true do
     program = FactoryGirl.create(:program, title: "Doug")
     user = FactoryGirl.create(:user)
     review = FactoryGirl.create(:review)
 
     sign_in(user)
+
     add_review(user, program, review)
     expect(page).to have_content(review.body)
   end
@@ -33,7 +34,7 @@ So that I can judge it harshly.
     add_review(user, program, review)
 
     page.find(".vote-up").click
-    expect(page).to have_content("Review Score: 1")
+    expect(page).to have_content("1")
   end
 
   scenario "When a user downvotes a review, the score changes", js: true do
@@ -45,7 +46,7 @@ So that I can judge it harshly.
     add_review(user, program, review)
 
     page.find(".vote-down").click
-    expect(page).to have_content("Review Score: -1")
+    expect(page).to have_content("-1")
   end
 
   scenario "When a user clicks a vote button twice, it negates their vote", js: true do
@@ -58,6 +59,6 @@ So that I can judge it harshly.
 
     page.find(".vote-down").click
     page.find(".vote-down").click
-    expect(page).to have_content("Review Score: 0")
+    expect(page).to have_content("0")
   end
 end

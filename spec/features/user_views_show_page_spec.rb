@@ -15,8 +15,6 @@ So that I can judge it harshly.
 
     visit program_path(program_1.id)
 
-    expect(page).to have_content(program_1.genre)
-    expect(page).to have_content(program_1.start_year)
-    expect(page).to have_content(program_1.end_year)
+    expect(page).to have_content(program_1.title)
   end
 end
