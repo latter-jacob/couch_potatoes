@@ -11,7 +11,7 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
-    @reviews = @program.reviews
+    @reviews = @program.reviews.order_by_vote.page params[:page]
     @review = Review.new
   end
 
@@ -21,7 +21,7 @@ class ProgramsController < ApplicationController
     if @program.save
       flash[:notice] = "Program saved"
       redirect_to program_path(@program)
-    else
+    elses
       flash[:notice] = @program.errors.full_messages.join(". ")
       render :new
     end

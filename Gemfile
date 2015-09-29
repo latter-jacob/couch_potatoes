@@ -21,6 +21,7 @@ gem 'pry'
 gem 'textacular', '~> 3.0'
 gem 'carrierwave'
 gem 'fog'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'

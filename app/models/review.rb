@@ -29,6 +29,13 @@ class Review < ActiveRecord::Base
     total
   end
 
+  def self.order_by_vote
+    select('reviews.*, sum(votes.value) as score')
+    .joins(:votes)
+    .group("reviews.id")
+    .order("score desc")
+  end
+
   def edited?
     created_at != updated_at
   end
