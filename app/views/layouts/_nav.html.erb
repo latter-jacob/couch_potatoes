@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">My Site</a></h1>
+      <h1><a href="/">Couch Potatoes</a></h1>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -27,7 +27,8 @@
     </ul>
     <!-- Left Nav Section -->
     <ul class="left">
-        <li class="active"><a href="#">Random</a></li>
+      <% random_program = Program.get_random_program(current_user) %>
+        <li class="active"><%= link_to "Random", program_path(random_program) %>
         <li class="has-dropdown">
           <a href="#">Browse Genres</a>
           <ul class="dropdown">
