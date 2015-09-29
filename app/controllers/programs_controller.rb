@@ -66,7 +66,11 @@ class ProgramsController < ApplicationController
   private
 
   def program_params
-    params.require(:program).permit(:title, :url, :start_year, :end_year, :genre)
+    params.require(:program).permit(
+      :title, :url, :start_year, :end_year, :genre
+    ).merge(
+      user: current_user
+    )
   end
 
   def require_admin
