@@ -80,3 +80,11 @@
 .clearfix {
   *zoom: 1;
 }
+
+/************** Profile Photo *******************************/
+
+#profile_photo {
+  /*how to change the position of the photo*/
+  width: 30px;
+  height: 30px;
+}
