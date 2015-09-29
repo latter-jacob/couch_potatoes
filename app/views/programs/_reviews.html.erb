@@ -1,0 +1,44 @@
+<% unless @reviews == [] %>
+  <h3>Reviews:</h3>
+    <% @reviews.each do |review| %>
+    <div class="row review">
+      <div class="small-1 columns vote-buttons" id="<%= review.id %>">
+          <% if review.votes.where(user: current_user).any? %>
+            <% if review.votes.where(user: current_user).first.value == 1 %>
+              <a class="vote vote-up" id="upvoted">▲</a>
+              <span class="score"><%= review.get_score %></span>
+              <a class="vote vote-down" id="downvote">▼</a>
+            <% elsif review.votes.where(user: current_user).first.value == -1 %>
+              <a class="vote vote-up" id="upvote">▲</a>
+              <span class="score"><%= review.get_score %></span>
+              <a class="vote vote-down" id="downvoted">▼</a>
+            <% else %>
+              <a class="vote vote-up" id="upvote">▲</a>
+              <span class="score"><%= review.get_score %></span>
+              <a class="vote vote-down" id="downvote">▼</a>
+            <% end  %>
+          <% else %>
+            <a class="vote vote-up" id="upvote">▲</a>
+            <span class="score"><%= review.get_score %></span>
+            <a class="vote vote-down" id="downvote">▼</a>
+          <% end %>
+        </div>
+        <div class="small-11 columns vote-content">
+          <div class="review-username"><%= review.user.email %></div>
+          <div class="review-body"><%= review.body %></div>
+          <% if review.edited? %>
+            <em>
+              - edited <%= time_ago_in_words(review.updated_at) %> ago
+            </em>
+          <% end %>
+          <br>
+          <% if review.user == current_user %>
+            <%= link_to "Edit Comment", edit_program_review_path(@program, review) %> |
+          <% end %>
+          <% if review.user == current_user || current_user.try(:admin?) %>
+            <%= link_to "Delete Comment", program_review_path(@program, review), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+<% end %>
