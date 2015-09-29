@@ -11,6 +11,7 @@ feature 'admin adds program', %{
   # [X] Non admins are redirected when attempting to visit the page
   # [X] Admins are able to successfully create a new show
   # [X] With invalid form info, admins are not able to create a new show
+
   scenario 'specify valid credentials' do
     admin = FactoryGirl.create(:user, admin: true)
 

@@ -16,6 +16,7 @@ FactoryGirl.define do
     sequence(:url) { |n| "http://www.#{n}program.com" }
     start_year "1991"
     end_year "1999"
+    genre
   end
 
   factory :review do
