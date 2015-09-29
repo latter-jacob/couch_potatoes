@@ -21,8 +21,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div>
-    <%= f.file_field :profile_photo, type: :file %>
+  <div class="field">
+    <%= f.label :profile_photo, "Profile Photo" %><br />
+    <%= f.file_field :profile_photo%>
   </div>
 
   <div class="actions">
