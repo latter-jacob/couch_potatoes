@@ -1,29 +1,69 @@
 [ ![Codeship Status for latter-jacob/couch_potatoes](https://codeship.com/projects/96440210-42b4-0133-b560-0a794f3732af/status?branch=master)](https://codeship.com/projects/103851) ![Code Climate](https://codeclimate.com/github/latter-jacob/couch_potatoes.png) [![Coverage Status](https://coveralls.io/repos/latter-jacob/couch_potatoes/badge.svg?branch=master&service=github)](https://coveralls.io/github/latter-jacob/couch_potatoes?branch=master)
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Couch Potatoes
+Review TV show theme songs. This app is intended for having while rating
+your favorite TV show theme songs! You can see a video of the song,
+its title, and review as you watch. Later you can vote on reviews by others.
 
-Things you may want to cover:
+## Live app hosted on Heroku
+[Couch Potatoes](couch-potatoes.herokuapp.com)
 
-* Ruby version
+## ER Diagrams and Schema structure
+This will soon appear, because it is being modified!
 
-* System dependencies
+## Ruby version
+2.1.5
 
-* Configuration
+## System dependencies
+* gem 'mailcatcher'
 
-* Database creation
+Mail catcher is not included in the Gem file and instead should be added via your console:
 
-* Database initialization
+```
+$ gem install mailcatcher && mailcatcher
+```
 
-* How to run the test suite
+Please include in your development.rb
+```
+# config/development.rb
+Rails.application.configure do
+ # mailcatcher config
+ #   to view emails generated in development:
+ #   `gem install mailcatcher && mailcatcher`
+ config.action_mailer.delivery_method = :smtp
 
-* Services (job queues, cache servers, search engines, etc.)
+ config.action_mailer.smtp_settings = {
+   address: "localhost",
+   port: 1025
+ }
 
-* Deployment instructions
+ config.action_mailer.default_url_options = {
+   host: "localhost",
+   port: 3000
+ }
+end
+```
 
-* ...
+## Get Started
+1. Bundle the gems
 
+  ```Bundle```
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. Bootup the database:
+
+  ```rake db:create```
+
+3. Bring in your migrations
+
+  ```rake db:migrate```
+
+4. Run the test suite
+
+  ```rake```
+
+## Deployment
+On a clean Master branch, run:
+
+  ```
+  git push heroku master
+  ```
