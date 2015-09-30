@@ -12,10 +12,10 @@ feature 'creator of program receives notification', %{
 
     visit program_path(program)
 
-    fill_in "Rating", with: "5"
+    fill_in "Body", with: "Hinkle Dinkle"
     click_button "Add Review"
 
-    expect(page).to have_content("5")
+    expect(page).to have_content("Hinkle Dinkle")
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end

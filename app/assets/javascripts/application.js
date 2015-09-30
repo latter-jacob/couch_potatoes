@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.raty
+//= require ratyrate
 //= require foundation
 //= require_tree .
 

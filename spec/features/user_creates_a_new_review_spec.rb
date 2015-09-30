@@ -7,8 +7,7 @@ feature 'user can add a new review for a theme song', %(
 ) do
 
   # Acceptance Criteria
-  # [ ] Users must input a rating from 1 to 5
-  # [ ] Users can optionally leave a comment, less than 200 characters
+  # [ ] Users must leave a comment, less than 200 characters
   # [ ] When the user submits the review, the user review is displayed
   #     on the show page
   # [ ] A flash message to indicate success
@@ -22,12 +21,10 @@ feature 'user can add a new review for a theme song', %(
     expect(page).to have_content('Signed in successfully')
 
     visit program_path(program_1)
-    fill_in "Rating", with: 5
     fill_in "Body", with: "This is a test! Lets see if it works"
 
     click_button("Add Review")
     expect(page).to have_content("This is a test! Lets see if it works")
-    expect(page).to have_content(5)
     expect(page).to have_content(user.email)
   end
 
@@ -35,7 +32,6 @@ feature 'user can add a new review for a theme song', %(
     program_1 = FactoryGirl.create(:program)
 
     visit program_path(program_1)
-    fill_in "Rating", with: 4
     fill_in "Body", with: "Heyhey"
 
     click_button("Add Review")
@@ -43,21 +39,6 @@ feature 'user can add a new review for a theme song', %(
       "You must be logged in to access this section"
     )
 
-  end
-
-  scenario 'user adds a review with a number that is not between 1 and 5' do
-    user = FactoryGirl.create(:user)
-    program_1 = FactoryGirl.create(:program)
-
-    sign_in(user)
-    expect(page).to have_content('Signed in successfully')
-
-    visit program_path(program_1)
-    fill_in "Rating", with: 12
-    fill_in "Body", with: "Good stuff"
-
-    click_button("Add Review")
-    expect(page).to have_content("Rating must be between 1 - 5")
   end
 
   scenario 'user adds a review with a body longer than 200 characters' do
@@ -68,7 +49,6 @@ feature 'user can add a new review for a theme song', %(
     expect(page).to have_content('Signed in successfully')
 
     visit program_path(program_1)
-    fill_in "Rating", with: 3
     fill_in "Body", with: "200charlol" * 21
 
     click_button("Add Review")
@@ -86,10 +66,6 @@ feature 'user can add a new review for a theme song', %(
 
     click_button("Add Review")
 
-    expect(page).to have_content(
-      "Rating can't be blank -
-      Rating is not a number -
-      Rating must be between 1 - 5"
-    )
+    expect(page).to have_content("Body can't be blank")
   end
 end
