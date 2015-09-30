@@ -16,11 +16,8 @@
       <% if current_user %>
         <li class="has-dropdown">
 
-          <% if current_user.profile_photo.nil? %>
-            <a href="#"><%= image_tag "couch-potato.jpg", id: "profile_photo"%></a>
-          <%- else-%>
-            <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
-          <%- end -%>
+          <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
+        </li>
 
           <ul class="dropdown">
             <li>
