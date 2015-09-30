@@ -11,19 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928170105) do
+ActiveRecord::Schema.define(version: 20150929165202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pg_trgm"
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  add_index "genres", ["name"], name: "index_genres_on_name", unique: true, using: :btree
 
   create_table "programs", force: :cascade do |t|
     t.string  "title",      null: false
     t.string  "url",        null: false
     t.string  "start_year"
     t.string  "end_year"
-    t.string  "genre"
     t.integer "user_id"
+    t.integer "genre_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -49,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150928170105) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

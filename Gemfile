@@ -17,8 +17,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
-gem "pry"
+gem 'pry'
 gem 'textacular', '~> 3.0'
+gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'

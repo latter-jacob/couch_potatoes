@@ -11,6 +11,7 @@ feature 'admin adds program', %{
   # [X] Non admins are redirected when attempting to visit the page
   # [X] Admins are able to successfully create a new show
   # [X] With invalid form info, admins are not able to create a new show
+
   scenario 'specify valid credentials' do
     admin = FactoryGirl.create(:user, admin: true)
 
@@ -50,12 +51,9 @@ feature 'admin adds program', %{
     fill_in 'Url', with: "https://www.youtube.com/watch?v=JQfM2TVvBFU"
     fill_in 'Start Year', with: "2001"
     fill_in 'End Year', with: "2010"
-
     click_button "Add Program"
 
     expect(page).to have_content('Scrubs')
-    expect(page).to have_content('2001')
-    expect(page).to have_content('2010')
     expect(page).to have_content('Program saved')
   end
 

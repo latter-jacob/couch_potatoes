@@ -1,0 +1,14 @@
+<%= form_for [@program, @review] do |f| %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit ("Add Review")%>
+<% end %>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Edit', edit_program_path(@program) %><br>
+  <%= link_to 'Delete Program', program_path, method: :delete %>
+<% end %>

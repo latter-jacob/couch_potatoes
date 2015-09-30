@@ -4,8 +4,14 @@ class ProgramsController < ApplicationController
   def index
     if params[:search]
       @programs = Program.fuzzy_search(params[:search]).order("title DESC")
+      @title_string = "Shows that match search: \"#{params[:search]}\""
+    elsif params[:genre_id]
+      @programs = Program.where(genre_id: params[:genre_id]).order(:title)
+      genre_name = Genre.find(params[:genre_id]).name
+      @title_string = "#{genre_name} shows"
     else
-      @programs = Program.all
+      @programs = Program.all.order(:title)
+      @title_string = "All Programs"
     end
   end
 
@@ -67,7 +73,7 @@ class ProgramsController < ApplicationController
 
   def program_params
     params.require(:program).permit(
-      :title, :url, :start_year, :end_year, :genre
+      :title, :url, :start_year, :end_year, :genre_id
     ).merge(
       user: current_user
     )

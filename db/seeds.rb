@@ -5,20 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require "faker"
-require "factory_girl"
 
-Program.create(title: Faker::Book.title, url: "Kk8eJh4i8Lo")
-Program.create(title: Faker::Book.title, url: "tG35R8F2j8k")
-Program.create(title: Faker::Book.title, url: "0OkB6p_FZAw")
-Program.create(title: Faker::Book.title, url: "c-tW0CkvdDI")
-Program.create(title: Faker::Book.title, url: "tEddixS-UoU")
-Program.create(title: Faker::Book.title, url: "2vjPBrBU-TM")
-Program.create(title: Faker::Book.title, url: "QcIy9NiNbmo")
-Program.create(title: Faker::Book.title, url: "ftrwe16sBiA")
-Program.create(title: Faker::Book.title, url: "qL1B_r9nC9k")
-Program.create(title: Faker::Book.title, url: "rYEDA3JcQqw")
-Program.create(title: Faker::Book.title, url: "49vGlSyf05A")
-Program.create(title: Faker::Book.title, url: "iWOyfLBYtuU")
-Program.create(title: Faker::Book.title, url: "KWZGAExj-es")
-Program.create(title: "Friends", url: "Niu9Zmrx0p8")
+require "csv"
+
+CSV.foreach('data.csv', headers: true, header_converters: :symbol) do |row|
+  genre = Genre.find_or_create_by(name: row[:genre])
+  Program.create(title: row[:title],
+                 url: row[:url],
+                 start_year: row[:start_year],
+                 end_year: row[:end_year],
+                 genre: genre)
+end
+
+# next step: add seed comments and users
+# add new review button
+# investigate getting button to expand form
