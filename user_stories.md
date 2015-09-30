@@ -54,3 +54,20 @@ Acceptance Criteria
   [ ] The score count appears next to the review
 
 ##User Story 6
+
+
+Notes
+```
+
+  # def order_by_vote(reviews, program)
+  #   id_array = []
+  #   score_array = []
+  #   program.reviews.each do |review|
+  #     id_array << review
+  #     score_array << review.get_score
+  #   end
+  #   hash = Hash[id_array.zip score_array]
+  #   hash2 = hash.sort_by {|key,value| value}.to_h
+  #   hash2.keys
+  # end
+```
