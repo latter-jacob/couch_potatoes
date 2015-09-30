@@ -15,10 +15,7 @@
 
       <% if current_user %>
         <li class="has-dropdown">
-
           <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
-        </li>
-
           <ul class="dropdown">
             <li>
               <% if current_user.try(:admin?) %>
