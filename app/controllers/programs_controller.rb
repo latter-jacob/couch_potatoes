@@ -17,7 +17,7 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
-    @reviews = @program.reviews
+    @reviews = @program.reviews.order_by_vote.page params[:page]
     @review = Review.new
   end
 
