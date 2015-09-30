@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
+  post '/rate' => 'rater#create', as: 'rate'
   root "programs#index"
 
   resources :programs, only: [:index, :show, :create, :new, :update, :edit, :destroy] do
