@@ -11,17 +11,35 @@
     <!-- Right Nav Section -->
 
     <ul class="right">
+      <%= render "layouts/search_bar" %>
+
       <% if current_user %>
-        <% if current_user.try(:admin?) %>
-          <li> Admin</li>
-        <%- else-%>
-          <li><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></li>
-        <%- end -%>
-      <%- end -%>
-      <%- if current_user -%>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li class="has-dropdown">
+
+          <% if current_user.profile_photo.nil? %>
+            <a href="#"><%= image_tag "couch-potato.jpg", id: "profile_photo"%></a>
+          <%- else-%>
+            <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
+          <%- end -%>
+
+          <ul class="dropdown">
+            <li>
+              <% if current_user.try(:admin?) %>
+                Admin
+              <%- else-%>
+                User
+              <%- end -%>
+              <%= current_user.email %>
+            </li>
+            <li>
+              Profile Page
+            </li>
+            <li>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
       <%- else -%>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
         <li><%= link_to 'Sign In', new_user_session_path %></li>
       <%- end -%>
     </ul>
