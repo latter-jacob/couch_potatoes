@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'creator of program receives notification', %{
+feature 'program creator receives notification', %{
 
 } do
 

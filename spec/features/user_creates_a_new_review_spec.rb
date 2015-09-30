@@ -28,7 +28,7 @@ feature 'user can add a new review for a theme song', %(
     click_button("Add Review")
     expect(page).to have_content("This is a test! Lets see if it works")
     expect(page).to have_content(5)
-    expect(page).to have_content(user.email)
+    expect(page).to have_content(user.username)
   end
 
   scenario 'user is not signed in and adds a review' do
