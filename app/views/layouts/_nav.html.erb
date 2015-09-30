@@ -8,34 +8,6 @@
     </ul>
 
     <section class="top-bar-section">
-      <!-- Right Nav Section -->
-    <ul class="right">
-      <%= render "layouts/search_bar" %>
-
-      <% if current_user %>
-        <li class="has-dropdown">
-          <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
-          <ul class="dropdown">
-            <li>
-              <% if current_user.try(:admin?) %>
-                Admin
-              <%- else-%>
-                User
-              <%- end -%>
-              <%= current_user.email %>
-            </li>
-            <li>
-              Profile Page
-            </li>
-            <li>
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
-        </li>
-      <%- else -%>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <%- end -%>
-    </ul>
     <!-- Left Nav Section -->
     <ul class="left">
       <li><%= link_to "Random", program_path(random_program) %></li>
@@ -50,5 +22,33 @@
         </ul>
       </li>
     </ul>
+    <!-- Right Nav Section -->
+  <ul class="right">
+    <%= render "layouts/search_bar" %>
+
+    <% if current_user %>
+      <li class="has-dropdown">
+        <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
+        <ul class="dropdown">
+          <li>
+            <% if current_user.try(:admin?) %>
+              Admin
+            <%- else-%>
+              User
+            <%- end -%>
+            <%= current_user.email %>
+          </li>
+          <li>
+            Profile Page
+          </li>
+          <li>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+      </li>
+    <%- else -%>
+      <li><%= link_to 'Sign In', new_user_session_path %></li>
+    <%- end -%>
+  </ul>
   </section>
 </nav>

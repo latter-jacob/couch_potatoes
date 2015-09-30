@@ -18,11 +18,12 @@
         </div>
       </div>
     </div>
+    <div id="background">
       <div class="row" id="content">
           <%= yield %>
       </div>
-    </div>
     <%= javascript_include_tag 'application' %>
     <%= yield :extra_footer %>
+    </div>
   </body>
 </html>
