@@ -17,7 +17,7 @@ class Program < ActiveRecord::Base
       result = Program.where('id NOT IN (?)', excluded_ids).sample
     end
     unless result
-      result = Program.first
+      result = Program.all.sample
     end
     result
   end
