@@ -28,7 +28,6 @@ Program.create(title: "Friends", url: "Niu9Zmrx0p8")
 # add new review button
 # investigate getting button to expand form
 
-
 User.create!(email: "hey#{rand(1..10000000)}@gmail.com", password: "password")
 User.create!(email: "hey#{rand(1..10000000)}@gmail.com", password: "password")
 User.create!(email: "hey#{rand(1..10000000)}@gmail.com", password: "password")

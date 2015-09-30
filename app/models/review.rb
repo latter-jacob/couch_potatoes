@@ -30,8 +30,8 @@ class Review < ActiveRecord::Base
   end
 
   def self.order_by_vote
-    select('reviews.*, sum(votes.value) as score')
-    .joins(:votes)
+    select('reviews.*, COALESCE(sum(votes.value), 0) AS score')
+    .joins('LEFT JOIN votes ON votes.review_id = reviews.id')
     .group("reviews.id")
     .order("score desc")
   end

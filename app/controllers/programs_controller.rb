@@ -21,7 +21,7 @@ class ProgramsController < ApplicationController
     if @program.save
       flash[:notice] = "Program saved"
       redirect_to program_path(@program)
-    elses
+    else
       flash[:notice] = @program.errors.full_messages.join(". ")
       render :new
     end

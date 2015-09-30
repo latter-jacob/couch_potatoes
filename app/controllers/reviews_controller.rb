@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
           @program.user, current_user, @program
         ).deliver_now
       end
-      @review.votes.create(user: current_user, value: 0)
       flash[:notice] = "You have sumbitted a review"
       redirect_to program_path(@program)
     else
