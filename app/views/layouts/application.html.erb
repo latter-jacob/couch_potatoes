@@ -11,12 +11,13 @@
         <%= value %>
       </div>
     <%- end -%>
-
-    <div class="container">
-      <div class="row" id "navigation">
-        <%= render "layouts/nav" %>
-        <%= render "layouts/search_bar" %>
+    <div id="nav-container">
+      <div class="row">
+        <div class="container">
+          <%= render "layouts/nav" %>
+        </div>
       </div>
+    </div>
       <div class="row" id="content">
           <%= yield %>
       </div>
