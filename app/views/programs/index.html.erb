@@ -1,9 +1,22 @@
 <div class="columns">
   <h1><%= @title_string %></h1>
 
-  <ul>
-    <% @programs.each do |program| %>
-      <li><%=link_to program.title, program_path(program.id) %></li>
-    <% end %>
-  </ul>
+  <div class="main_video_grid">
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
+      <%@programs.each do |program| %>
+        <li>
+          <a class="vid-link" href="/programs/<%= program.id %>">
+            <div class="vid-image" style="background-image: url(http://img.youtube.com/vi/<%= program.url %>/mqdefault.jpg)">
+              <img src="http://img.youtube.com/vi/s7L2PVdrb_8/mqdefault.jpg" style="visibility:hidden" />
+              <div class="vid-overlay">
+                <%= program.title %>
+              </div>
+            </div>
+          </a>
+          <h4 class="program-title"><%= program.title %></h4>
+          <%= program.start_year %> - <%= program.end_year %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
