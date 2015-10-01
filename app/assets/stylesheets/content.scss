@@ -1,7 +1,10 @@
 /************** CONTENT CONTAINER *******************************/
+$green: #bdd860;
+$red: #d85b36;
+$white: #ffffff;
 
 #content {
-  background-color: #ffffff;
+  background-color: $white;
   font-family: "Muli";
   margin-bottom: 6rem;
   margin-top: 6rem;
@@ -37,6 +40,7 @@ h1 {
 
 .stars img {
   width: 30px;
+
 }
 
 .stars {
@@ -67,9 +71,9 @@ h1 {
 }
 
 #upvoted {
-  color: #bdd860;
+  color: $green;
 }
 
 #downvoted {
-  color: #d85b36;
+  color: $red;
 }

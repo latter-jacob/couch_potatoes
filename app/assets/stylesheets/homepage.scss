@@ -1,9 +1,10 @@
-$color: #EC4339;
+$coral: #ec4339;
+$white: #ffffff;
 
 .title-box {
-  background-color: $color;
+  background-color: $coral;
   font-family: 'Alegreya Sans SC', sans-serif;
-  color: #ffffff;
+  color: $white;
   padding: 10px;
   font-weight: bold;
   letter-spacing: 1.25px;
@@ -24,17 +25,15 @@ $color: #EC4339;
   display: block;
 }
 
-
 .vid-overlay {
-  display: none;
-  // background-color: rgba(0, 0, 0, 0.0);
-  float: left;
-  position: absolute;
-  top: 0;
   bottom: 0;
-  right: 0;
+  color: $white;
+  display: none;
+  float: left;
   left: 0;
-  text-align: center;
   padding-top: 23%;
-  color: white;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
 }
