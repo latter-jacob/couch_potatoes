@@ -12,7 +12,7 @@ feature 'program creator receives notification', %{
 
     visit program_path(program)
 
-    fill_in "Body", with: "Hinkle Dinkle"
+    fill_in "review_body", with: "Hinkle Dinkle"
     click_button "Add Review"
 
     expect(page).to have_content("Hinkle Dinkle")

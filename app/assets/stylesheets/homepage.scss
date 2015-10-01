@@ -1,0 +1,40 @@
+$color: #EC4339;
+
+.title-box {
+   background-color: $color;
+   font-family: 'Alegreya Sans SC', sans-serif;
+   color: #ffffff;
+   padding: 10px;
+   font-weight: bold;
+   letter-spacing: 1.25px;
+   font-size: 60px;
+   font-size: 5vw;
+ }
+
+.vid-image {
+  width: -webkit-fit-content;
+  height: -webkit-fit-content;
+  width: -moz-fit-content;
+  height: -moz-fit-content;
+  position: relative;
+}
+
+.vid-image:hover .vid-overlay {
+  background-color: rgba(0, 0, 0, 0.41);
+  display: block;
+}
+
+
+.vid-overlay {
+  display: none;
+  // background-color: rgba(0, 0, 0, 0.0);
+  float: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding-top: 23%;
+  color: white;
+}
