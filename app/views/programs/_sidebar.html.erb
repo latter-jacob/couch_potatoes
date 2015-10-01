@@ -1,4 +1,35 @@
   <h3>Watch Next</h3>
-  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /> </br ></br >
-  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /><br /></br >
-  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" />
+
+
+
+  <ul class="small-block-grid-1">
+    <% @programs.each do |program| %>
+      <li>
+        <a class="vid-link" href="/programs/<%= program.id %>">
+          <div class="vid-image" style="background-size: cover; width: auto; background-image: url(http://img.youtube.com/vi/<%= program.url %>/mqdefault.jpg)">
+            <img src="http://img.youtube.com/vi/s7L2PVdrb_8/mqdefault.jpg" style="width: 100%; visibility:hidden;" />
+            <div class="vid-overlay">
+              <%= program.title %>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+  <!-- <div class="main_video_grid">
+    <ul class="small-block-grid-1">
+      <%@programs.each do |program| %>
+        <li>
+          <a class="vid-link" href="/programs/<%= program.id %>">
+            <div class="vid-image" style="background-image: url(http://img.youtube.com/vi/<%= program.url %>/mqdefault.jpg)">
+              <img src="http://img.youtube.com/vi/s7L2PVdrb_8/mqdefault.jpg" style="visibility:hidden; width: 100%;" />
+              <div class="vid-overlay">
+                <%= program.title %>
+              </div>
+            </div>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div> -->
