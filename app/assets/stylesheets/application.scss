@@ -10,9 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require foundation_and_overrides
+ *= require font-awesome
+ *= require_self
+ *= require navigation
  */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,400italic,300italic);
@@ -37,22 +38,6 @@
   overflow: auto;
 }
 
-/************** NAVIGATION *******************************/
-
-#nav-container {
-  border-bottom: 1px solid #d9d9d9;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown {
-  border: 1px solid #d9d9d9;
-  border-top: none;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
-}
-
-.dropdown li > a {
-  border-bottom: 1px solid #d9d9d9;
-}
 
 /************** CONTENT CONTAINER *******************************/
 
@@ -125,20 +110,4 @@
   /*how to change the position of the photo*/
   width: 30px;
   height: 30px;
-}
-/************** Search Bar *******************************/
-#search_box {
-  width: 180px;
-}
-#search_bar {
-  width: 115px;
-}
-
-#search_button {
-  width: 95px;
-}
-
-li.has-form {
-  width: 250px;
-  padding: -0px;
 }

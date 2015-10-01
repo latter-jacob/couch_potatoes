@@ -1,12 +1,7 @@
-<li class="has-form">
-  <div class="row collapse">
-    <%= form_tag(programs_path, :method => "get") do %>
-      <div class="large-8 small-9 columns" id="search_button">
-        <%= text_field_tag :search, params[:search], id: "search_bar", placeholder: "Search Shows" %>
-      </div>
-      <div class="large-4 small-3 columns" id="search_button">
-        <button type="submit" class="button expand">Search</button>
-      </div>
+<li>
+    <%= form_tag(programs_path, method: "get") do %>
+    <%= text_field_tag :search, params[:search], id: "search-box", class: "search-box", placeholder: "Search Shows" %>
+    <%= label_tag "search-box", '<span><i class="fa fa-search"></i></span>'.html_safe %>
+    <input type="submit" id="search-submit" />
     <% end %>
-  </div>
 </li>
