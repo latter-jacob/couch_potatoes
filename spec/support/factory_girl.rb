@@ -21,7 +21,6 @@ FactoryGirl.define do
   end
 
   factory :review do
-    rating 5
     sequence(:body) { |n| "Celtics are #{n} champions (but really 17 times)" }
     program
     user

@@ -1,10 +1,8 @@
 <h2>Edit Comment on <%= @program.title %></h2>
 <%= form_for [@program, @review] do |f| %>
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
 
   <%= f.label :body %>
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
 
   <%= f.submit ("Update Comment")%>
 <% end %>
