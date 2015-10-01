@@ -11,6 +11,10 @@ h1 {
   font-family: "Muli";
 }
 
+.button {
+  text-transform: uppercase;
+}
+
 
 /************** REVIEWS *****************************/
 
@@ -29,6 +33,14 @@ h1 {
 .vote-buttons {
   text-align: center;
   /*margin-left: 30px;*/
+}
+
+.stars img {
+  width: 30px;
+}
+
+.stars {
+  line-height: 3em;
 }
 
 /************** UPVOTES *****************************/

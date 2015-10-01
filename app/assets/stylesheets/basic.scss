@@ -1,14 +1,28 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,400italic,300italic);
 @import url(https://fonts.googleapis.com/css?family=Muli:400,300italic,300);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:800);
 
  /************** BASIC STYLING *****************************/
+
+$color: #EC4339;
+
+ .title-box {
+   background-color: $color;
+   color: #FFFFFF;
+   padding: 10px;
+   font-weight: bold;
+   font-family: 'Alegreya Sans SC', sans-serif;
+   letter-spacing: 1.25px;
+   font-size: 60px;
+   font-size: 5vw;
+ }
 
 #background {
   display: flex;
   flex-flow: column;
   height: 100%;
-  background: url("http://freephotos.atguru.in/hdphotos/forest-landscape-wallpaper/forest-sun-wallpaper-landscape-nature-wallpaper-2560-1600-widescreen-1080.jpg") no-repeat center center fixed;
+  background: url("https://visualmodo.com/wp-content/uploads/2014/02/02_Bokeh-Background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

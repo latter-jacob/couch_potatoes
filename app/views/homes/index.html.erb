@@ -1,4 +1,13 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+
+<div class="title-box">
+  Watch. Rate. Review.
+</div>
+<div class="main_video_grid">
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
+    <%@programs.each do |program| %>
+      <li class="video_picture">
+        <img src="http://img.youtube.com/vi/<%= program.url %>/mqdefault.jpg" frameborder="0"></img>
+      </li>
+    <% end %>
+  </ul>
+</div>

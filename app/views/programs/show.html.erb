@@ -3,19 +3,25 @@
 </div>
 
 <div class="medium-9 columns">
-
-  <h1 class="show-title"><%=@program.title%></h1>
-
-  Rating: <%= rating_for @program, "rating", disable_after_rate: false %>
-
-  <a href="#" class="button" id="review-button">Add a review</a>
-
-  <div class="hide" id="add-review">
-    <%= render "programs/add_review" %>
+  <div class="row">
+    <div class="columns">
+      <h1 class="show-title"><%=@program.title%></h1>
+        <a href="#" class="button left" id="review-button">Add a review</a>
+      <div class="stars left">
+        <%= rating_for @program, "rating", disable_after_rate: false %>
+      </div>
+    </div>
   </div>
-
-    <%= render "programs/reviews" %>
-    <%= paginate @reviews %>
+  <div class="row">
+    <div class="columns">
+    <div class="hide" id="add-review">
+      <%= render "programs/add_review" %>
+    </div>
+      <%= render "programs/reviews" %>
+      <%= paginate @reviews %>
+    </div>
+  </div>
 </div>
-
-<%= render 'sidebar' %>
+<div class="medium-3 columns">
+  <%= render 'sidebar' %>
+</div>
