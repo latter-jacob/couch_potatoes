@@ -11,16 +11,19 @@
         <%= value %>
       </div>
     <%- end -%>
-
-    <div class="container">
-      <div class="row" id "navigation">
-        <%= render "layouts/nav" %>
+    <div id="nav-container">
+      <div class="row">
+        <div class="container">
+          <%= render "layouts/nav" %>
+        </div>
       </div>
+    </div>
+    <div id="background">
       <div class="row" id="content">
           <%= yield %>
       </div>
-    </div>
     <%= javascript_include_tag 'application' %>
     <%= yield :extra_footer %>
+    </div>
   </body>
 </html>

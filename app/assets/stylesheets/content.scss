@@ -1,0 +1,41 @@
+/************** CONTENT CONTAINER *******************************/
+
+#content {
+}
+
+/************** REVIEWS *****************************/
+
+.row .review {
+  margin-top: 15px;
+}
+
+.review-username {
+  font-weight: bold;
+}
+
+.star {
+  height: 70px;
+}
+
+.vote-buttons {
+  text-align: center;
+  /*margin-left: 30px;*/
+}
+
+/************** UPVOTES *****************************/
+
+#upvote {
+  color: grey;
+}
+
+#downvote {
+  color: grey;
+}
+
+#upvoted {
+  color: #BDD860;
+}
+
+#downvoted {
+  color: #D85B36;
+}

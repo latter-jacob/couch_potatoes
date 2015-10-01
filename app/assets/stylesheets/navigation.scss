@@ -1,0 +1,41 @@
+/************** NAVIGATION *******************************/
+
+#nav-container {
+  border-bottom: 1px solid #d9d9d9;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown {
+  border: 1px solid #d9d9d9;
+  border-top: none;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown li > a {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+/************** Profile Photo *******************************/
+
+#profile_photo {
+  /*how to change the position of the photo*/
+  width: 30px;
+  height: 30px;
+}
+
+/************** Search Bar *******************************/
+#search_box {
+  width: 180px;
+}
+#search_bar {
+  width: 115px;
+}
+
+#search_button {
+  width: 95px;
+}
+
+li.has-form {
+  width: 250px;
+  padding: 0;
+}

@@ -23,6 +23,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'ratyrate'
 gem 'kaminari'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'
