@@ -19,7 +19,7 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
     @reviews = @program.reviews.order_by_vote.page params[:page]
     @review = Review.new
-    @programs = [Program.get_random_program(current_user), Program.get_random_program(current_user), Program.get_random_program(current_user)]
+    @programs = Program.get_sidebar
   end
 
   def create
