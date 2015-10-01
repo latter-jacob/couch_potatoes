@@ -46,7 +46,17 @@ h1 {
 .raty-cancel {
   display: none;
 }
+
+.review-container {
+  padding-left: 20px;
+}
+
 /************** UPVOTES *****************************/
+
+.vote {
+  font-family: "Open Sans";
+  font-size: 20px;
+}
 
 #upvote {
   color: grey;
