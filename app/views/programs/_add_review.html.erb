@@ -1,9 +1,7 @@
 <%= form_for [@program, @review] do |f| %>
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
 
   <%= f.label :body %>
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
 
   <%= f.submit ("Add Review")%>
 <% end %>
