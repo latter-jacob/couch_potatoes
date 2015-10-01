@@ -6,11 +6,6 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%- flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
-      </div>
-    <%- end -%>
     <div id="nav-container">
       <div class="row">
         <div class="container">
@@ -20,6 +15,11 @@
     </div>
     <div id="background">
       <div class="row" id="content">
+        <%- flash.each do |key, value| -%>
+          <div class="alert-box flash flash-<%= key %>">
+            <%= value %>
+          </div>
+        <%- end -%>
           <%= yield %>
       </div>
     <%= javascript_include_tag 'application' %>
