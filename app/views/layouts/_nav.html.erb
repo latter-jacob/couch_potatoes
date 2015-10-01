@@ -6,7 +6,6 @@
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-
     <section class="top-bar-section">
     <!-- Left Nav Section -->
     <ul class="left">
@@ -23,32 +22,32 @@
       </li>
     </ul>
     <!-- Right Nav Section -->
-  <ul class="right">
-    <%= render "layouts/search_bar" %>
+    <ul class="right">
+      <%= render "layouts/search_bar" %>
 
-    <% if current_user %>
-      <li class="has-dropdown">
-        <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
-        <ul class="dropdown">
-          <li>
-            <% if current_user.try(:admin?) %>
-              Admin
-            <%- else-%>
-              User
-            <%- end -%>
-            <%= current_user.email %>
-          </li>
-          <li>
-            Profile Page
-          </li>
-          <li>
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-          </li>
-        </ul>
-      </li>
-    <%- else -%>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
-    <%- end -%>
+      <% if current_user %>
+        <li class="has-dropdown">
+          <a href="#"><%= image_tag "#{current_user.profile_photo}", id: "profile_photo"%></a>
+          <ul class="dropdown">
+            <li>
+              <% if current_user.try(:admin?) %>
+                Admin:
+              <%- else-%>
+                User:
+              <%- end -%>
+              <%= current_user.username %>
+            </li>
+            <li>
+              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            </li>
+            <li>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
+      <%- else -%>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
   </ul>
   </section>
 </nav>
