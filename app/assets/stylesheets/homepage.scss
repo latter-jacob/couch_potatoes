@@ -18,6 +18,7 @@ $white: #ffffff;
   width: -moz-fit-content;
   height: -moz-fit-content;
   position: relative;
+  background-position-x: 50%;
 }
 
 .vid-image:hover .vid-overlay {
@@ -36,4 +37,8 @@ $white: #ffffff;
   right: 0;
   text-align: center;
   top: 0;
+}
+
+[class*="block-grid-"] > li {
+  padding: 0 0.620rem 1.25rem;
 }
