@@ -9,7 +9,7 @@ module Helpers
   def add_review(signed_in_user, program, review)
     visit program_path(program)
     click_link("Add a review")
-    fill_in "Body", with: review.body
+    fill_in "review_body", with: review.body
     click_button("Add Review")
   end
 end

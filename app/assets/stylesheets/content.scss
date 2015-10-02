@@ -1,7 +1,23 @@
 /************** CONTENT CONTAINER *******************************/
+$green: #bdd860;
+$red: #d85b36;
+$white: #ffffff;
+$neutral: #d9d9d9;
 
 #content {
+  background-color: $white;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  font-family: "Muli";
 }
+
+h1 {
+  font-family: "Muli";
+}
+
+.button {
+  text-transform: uppercase;
+}
+
 
 /************** REVIEWS *****************************/
 
@@ -22,7 +38,29 @@
   /*margin-left: 30px;*/
 }
 
+.stars img {
+  width: 30px;
+
+}
+
+.stars {
+  line-height: 3em;
+}
+
+.raty-cancel {
+  display: none;
+}
+
+.review-container {
+  padding-left: 20px;
+}
+
 /************** UPVOTES *****************************/
+
+.vote {
+  font-family: "Open Sans";
+  font-size: 20px;
+}
 
 #upvote {
   color: grey;
@@ -33,9 +71,29 @@
 }
 
 #upvoted {
-  color: #BDD860;
+  color: $green;
 }
 
 #downvoted {
-  color: #D85B36;
+  color: $red;
+}
+
+/************** UPVOTES *****************************/
+
+.sidebar {
+  border-left: 1px solid $neutral;
+}
+
+/************** MEDIA QUERIES *****************************/
+
+// Small screens
+// @media only screen { } /* Define mobile styles */
+
+@media only screen and (min-width: 64.063em) {
+
+  #content {
+    margin-bottom: 5vw;
+    margin-top: 3vw;
+  }
+
 }

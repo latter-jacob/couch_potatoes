@@ -1,0 +1,15 @@
+  <h3><strong>Watch Next</strong></h3>
+  <ul class="small-block-grid-1">
+    <% @programs.each do |program| %>
+      <li>
+        <a class="vid-link" href="/programs/<%= program.id %>">
+          <div class="vid-image" style="background-size: cover; width: auto; background-image: url(http://img.youtube.com/vi/<%= program.url %>/mqdefault.jpg)">
+            <img src="http://img.youtube.com/vi/s7L2PVdrb_8/mqdefault.jpg" style="width: 100%; visibility:hidden;" />
+            <div class="vid-overlay">
+              <%= program.title %>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>

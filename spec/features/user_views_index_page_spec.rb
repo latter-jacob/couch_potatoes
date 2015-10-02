@@ -10,11 +10,14 @@ So that I can decide which one to judge.
 
 ) do
 
-  scenario "user views all programs" do
+  scenario "user views all programs", js: true do
     program_1 = FactoryGirl.create(:program, title: "Doug")
 
     visit root_path
 
+    within all('.vid-link').last do
+      find('.vid-image').hover
+    end
     expect(page).to have_content(program_1.title)
   end
 end

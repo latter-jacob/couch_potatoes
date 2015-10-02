@@ -87,7 +87,8 @@ $row-width: rem-calc(854);
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to define default font stacks
-$font-family-sans-serif: 'Open Sans', "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-sans-serif-alternate: "Muli", "Open Sans" "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
@@ -95,9 +96,9 @@ $font-family-sans-serif: 'Open Sans', "Helvetica Neue", Helvetica, Roboto, Arial
 // $font-weight-normal: normal;
 $font-weight-bold: bold;
 
-$white       : #FFFFFF;
+$white       : #ffffff;
 $neutral     : #bdbdbd;
-$darkneutral  : #9E9E9E;
+$darkneutral  : #9e9e9e;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -118,7 +119,7 @@ $darkneutral  : #9E9E9E;
 $black       : #000000;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #ec4339;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;

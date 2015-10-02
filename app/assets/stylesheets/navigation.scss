@@ -1,18 +1,23 @@
+$neutral: #d9d9d9;
+$poppy: #ec4339;
+$white: #ffffff;
+$grey: #777;
+
 /************** NAVIGATION *******************************/
 
 #nav-container {
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid $neutral;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown {
-  border: 1px solid #d9d9d9;
+  border: 1px solid $neutral;
   border-top: none;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .dropdown li > a {
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid $neutral;
 }
 
 /************** Profile Photo *******************************/
@@ -24,15 +29,37 @@
 }
 
 /************** Search Bar *******************************/
-#search_box {
-  width: 180px;
-}
-#search_bar {
+
+#search-bar {
   width: 115px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  box-shadow: none;
+  border-color: $white;
 }
 
-#search_button {
+#search-bar:hover {
+  border-color: $neutral;
+}
+
+#search-bar:focus {
+  border-color: $neutral;
+}
+
+#search-button {
   width: 95px;
+}
+
+#search-button > button {
+  background-color: $neutral;
+  color: $grey;
+  line-height: 1em;
+}
+
+#search-button > button:hover {
+  background-color: $poppy;
+  color: $white;
 }
 
 li.has-form {

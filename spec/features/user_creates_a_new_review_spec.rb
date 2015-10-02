@@ -21,7 +21,7 @@ feature 'user can add a new review for a theme song', %(
     expect(page).to have_content('Signed in successfully')
 
     visit program_path(program_1)
-    fill_in "Body", with: "This is a test! Lets see if it works"
+    fill_in "review_body", with: "This is a test! Lets see if it works"
 
     click_button("Add Review")
     expect(page).to have_content("This is a test! Lets see if it works")
@@ -32,7 +32,7 @@ feature 'user can add a new review for a theme song', %(
     program_1 = FactoryGirl.create(:program)
 
     visit program_path(program_1)
-    fill_in "Body", with: "Heyhey"
+    fill_in "review_body", with: "Heyhey"
 
     click_button("Add Review")
     expect(page).to have_content(
@@ -49,7 +49,7 @@ feature 'user can add a new review for a theme song', %(
     expect(page).to have_content('Signed in successfully')
 
     visit program_path(program_1)
-    fill_in "Body", with: "200charlol" * 21
+    fill_in "review_body", with: "200charlol" * 21
 
     click_button("Add Review")
     expect(page).to have_content("Body is too long (maximum is 200 characters)")

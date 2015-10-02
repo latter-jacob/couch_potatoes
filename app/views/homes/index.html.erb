@@ -1,4 +1,20 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+
+<div class="title-box">
+  Watch. Rate. Review.
+</div>
+<div class="main_video_grid">
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
+    <%@programs.each do |program| %>
+      <li>
+        <a class="vid-link" href="/programs/<%= program.id %>">
+          <div class="vid-image" style="background-image: url(http://img.youtube.com/vi/<%= program.url %>/mqdefault.jpg)">
+            <img src="http://img.youtube.com/vi/s7L2PVdrb_8/mqdefault.jpg" style="visibility:hidden" />
+            <div class="vid-overlay">
+              <%= program.title %>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

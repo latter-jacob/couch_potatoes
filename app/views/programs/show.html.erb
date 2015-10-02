@@ -1,26 +1,27 @@
 <div class="flex-video widescreen">
-  <iframe width="854" height="480" src="//www.youtube.com/embed/<%= @program.url %>" frameborder="0"></iframe>
+  <iframe width="854" height="480" src="//www.youtube.com/embed/<%= @program.url %>?vq=hd720&modestbranding=1&autohide=1&showinfo=0" frameborder="0"></iframe>
 </div>
 
-<div class="medium-9 columns">
-
-  <h1 class="show-title"><%=@program.title%></h1>
-
-  Rating: <%= rating_for @program, "rating", disable_after_rate: false %>
-
-  <a href="#" class="button" id="review-button">Add a review</a>
-
-  <div class="hide" id="add-review">
-    <%= render "programs/add_review" %>
+<div class="medium-8 columns">
+  <div class="row">
+    <div class="columns">
+      <h1 class="show-title"><strong><%=@program.title%></strong></h1>
+        <a href="#" class="button left" id="review-button">Add a review</a>
+      <div class="stars left">
+        <%= rating_for @program, "rating", disable_after_rate: false %>
+      </div>
+    </div>
   </div>
-
-    <%= render "programs/reviews" %>
-    <%= paginate @reviews %>
+  <div class="row">
+    <div class="columns">
+    <div class="hide" id="add-review">
+      <%= render "programs/add_review" %>
+    </div>
+      <%= render "programs/reviews" %>
+      <%= paginate @reviews %>
+    </div>
+  </div>
 </div>
-
-<div class="medium-3 columns">
-  <h3>Watch Next</h3>
-  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /> </br ></br >
-  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" /><br /></br >
-  <img src="http://img.youtube.com/vi/ftrwe16sBiA/mqdefault.jpg" />
+<div class=" sidebar medium-4 columns">
+  <%= render 'sidebar' %>
 </div>

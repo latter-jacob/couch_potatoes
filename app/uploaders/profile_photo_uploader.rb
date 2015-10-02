@@ -1,6 +1,6 @@
 # encoding: utf-8
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
-  if Rails.env.production? || Rails.env.development?
+  if Rails.env.production?
     storage :fog
   else
     storage :file

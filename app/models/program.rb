@@ -23,4 +23,8 @@ class Program < ActiveRecord::Base
     end
     result
   end
+
+  def self.get_sidebar
+    Program.all.shuffle.pop(3)
+  end
 end
