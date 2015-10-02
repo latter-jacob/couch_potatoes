@@ -14,7 +14,12 @@
             </div>
           </a>
           <h4 class="program-title"><%= program.title %></h4>
-          <%= program.start_year %> - <%= program.end_year %>
+          <%= program.start_year %> -
+          <% if program.end_year? %>
+            <%= program.end_year %>
+          <% else %>
+            Present
+          <% end %>
         </li>
       <% end %>
     </ul>

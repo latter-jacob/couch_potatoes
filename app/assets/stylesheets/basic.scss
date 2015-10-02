@@ -5,6 +5,10 @@
 
  /************** BASIC STYLING *****************************/
 
+ body {
+   overflow: hidden;
+ }
+
 #background {
   display: flex;
   flex-flow: column;
