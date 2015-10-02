@@ -21,11 +21,6 @@ $white: #ffffff;
   background-position-x: 50%;
 }
 
-.vid-image:hover .vid-overlay {
-  background-color: rgba(0, 0, 0, 0.41);
-  display: block;
-}
-
 .vid-overlay {
   bottom: 0;
   color: $white;
@@ -39,6 +34,12 @@ $white: #ffffff;
   top: 0;
   font-size: 1.5em;
   font-weight: bolder;
+  text-shadow: 4px 4px 10px black;
+}
+
+.vid-image:hover .vid-overlay {
+  background-color: rgba(0, 0, 0, 0.41);
+  display: block;
 }
 
 [class*="block-grid-"] > li {
