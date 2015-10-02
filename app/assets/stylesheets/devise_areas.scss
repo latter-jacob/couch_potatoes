@@ -1,0 +1,21 @@
+.shared-links {
+  float: right;
+  padding: 7px;
+}
+
+.shared-links a {
+  font-size: 1.5rem;
+}
+
+.shared-links a:hover {
+  color: #D4827D;
+}
+
+
+.shared-links a::before {
+  content: " | ";
+}
+
+.shared-links a:first-child::before {
+  content: "";
+}

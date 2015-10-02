@@ -2,12 +2,13 @@
 $green: #bdd860;
 $red: #d85b36;
 $white: #ffffff;
+$neutral: #d9d9d9;
 
 #content {
   background-color: $white;
   font-family: "Muli";
-  margin-bottom: 6rem;
-  margin-top: 6rem;
+  // border: 1px solid $neutral;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -76,4 +77,18 @@ h1 {
 
 #downvoted {
   color: $red;
+}
+
+/************** MEDIA QUERIES *****************************/
+
+// Small screens
+// @media only screen { } /* Define mobile styles */
+
+@media only screen and (min-width: 64.063em) {
+
+#content {
+  margin-bottom: 5vw;
+  margin-top: 5vw;
+}
+
 }
