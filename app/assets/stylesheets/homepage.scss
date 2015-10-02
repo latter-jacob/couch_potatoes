@@ -1,40 +1,41 @@
 $coral: #ec4339;
 $white: #ffffff;
+$black: #000000;
 
 .title-box {
   background-color: $coral;
-  font-family: 'Alegreya Sans SC', sans-serif;
   color: $white;
-  padding: 10px;
-  font-weight: bold;
-  letter-spacing: 1.25px;
+  font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 60px;
   font-size: 5vw;
+  font-weight: bold;
+  letter-spacing: 1.25px;
+  padding: 10px;
  }
 
 .vid-image {
-  width: -webkit-fit-content;
+  background-position-x: 50%;
   height: -webkit-fit-content;
-  width: -moz-fit-content;
   height: -moz-fit-content;
   position: relative;
-  background-position-x: 50%;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
 }
 
 .vid-overlay {
-  bottom: 0;
   color: $white;
+  bottom: 0;
   display: none;
   float: left;
+  font-size: 1.5em;
+  font-weight: bolder;
   left: 0;
   padding-top: 23%;
   position: absolute;
   right: 0;
   text-align: center;
+  text-shadow: 4px 4px 10px $black;
   top: 0;
-  font-size: 1.5em;
-  font-weight: bolder;
-  text-shadow: 4px 4px 10px black;
 }
 
 .vid-image:hover .vid-overlay {

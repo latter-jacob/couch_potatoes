@@ -6,9 +6,8 @@ $neutral: #d9d9d9;
 
 #content {
   background-color: $white;
-  font-family: "Muli";
-  // border: 1px solid $neutral;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  font-family: "Muli";
 }
 
 h1 {
@@ -92,9 +91,9 @@ h1 {
 
 @media only screen and (min-width: 64.063em) {
 
-#content {
-  margin-bottom: 5vw;
-  margin-top: 3vw;
-}
+  #content {
+    margin-bottom: 5vw;
+    margin-top: 3vw;
+  }
 
 }
