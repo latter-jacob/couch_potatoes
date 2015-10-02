@@ -11,7 +11,7 @@ feature 'user can search for a show', %(
 
     visit root_path
 
-    fill_in "search_bar", with: "bad"
+    fill_in "search-bar", with: "bad"
 
     click_button("Search")
     expect(page).to have_content("Breaking Bad")

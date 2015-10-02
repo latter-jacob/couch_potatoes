@@ -1,3 +1,5 @@
+$pink: #D4827D;
+
 .shared-links {
   float: right;
   padding: 7px;
@@ -8,7 +10,7 @@
 }
 
 .shared-links a:hover {
-  color: #D4827D;
+  color: $pink;
 }
 
 
