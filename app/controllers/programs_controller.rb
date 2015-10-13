@@ -8,7 +8,7 @@ class ProgramsController < ApplicationController
     elsif params[:genre_id]
       @programs = Program.where(genre_id: params[:genre_id]).order(:title)
       genre_name = Genre.find(params[:genre_id]).name
-      @title_string = "#{genre_name} shows"
+      @title_string = "#{genre_name} Shows"
     else
       @programs = Program.all.order(:title)
       @title_string = "All Programs"
