@@ -21,7 +21,6 @@ gem 'pry'
 gem 'textacular', '~> 3.0'
 gem 'carrierwave'
 gem 'fog'
-gem 'ratyrate'
 gem 'kaminari'
 gem 'font-awesome-rails'
 

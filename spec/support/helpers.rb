@@ -10,6 +10,6 @@ module Helpers
     visit program_path(program)
     click_link("Add a review")
     fill_in "review_body", with: review.body
-    click_button("Add Review")
+    page.find("#submit-review-button").click
   end
 end

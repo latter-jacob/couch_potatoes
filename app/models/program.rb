@@ -8,8 +8,6 @@ class Program < ActiveRecord::Base
   validates :url, presence: true
   validates :url, uniqueness: true
 
-  ratyrate_rateable 'rating'
-
   def self.get_random_program(user)
     result = nil
     if user.nil?

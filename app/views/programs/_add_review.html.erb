@@ -2,7 +2,7 @@
 
   <%= f.text_area :body %>
 
-  <%= f.submit "Add Review", class: "tiny success button" %>
+  <%= f.submit "Add Review", class: "tiny success button", id: "submit-review-button" %>
 <% end %>
 
 <% if current_user.try(:admin?) %>
