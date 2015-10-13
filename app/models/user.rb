@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  ratyrate_rater
-
   mount_uploader :profile_photo, ProfilePhotoUploader
 
   has_many :reviews, dependent: :destroy
