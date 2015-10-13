@@ -9,7 +9,7 @@ its title, and review as you watch. Later you can vote on reviews by others.
 [Couch Potatoes](couch-potatoes.herokuapp.com)
 
 ## ER Diagrams and Schema structure
-This will soon appear, because it is being modified!
+![ER](https://pbs.twimg.com/media/CQVUyEvWoAA3i6e.jpg:large)
 
 ## Ruby version
 2.1.5
